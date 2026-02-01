@@ -22,9 +22,9 @@ const pricingPlans: PricingCardProps[] = [
       "Email support",
       "Performance monitoring",
     ],
-    buttonText: "Get Started",
+    buttonText: "Choose Starter",
     buttonHref: "/contact",
-    buttonVariant: "secondary",
+    buttonVariant: "primary",
   },
   {
     planName: "Growth",
@@ -36,7 +36,7 @@ const pricingPlans: PricingCardProps[] = [
       "Priority maintenance",
       "Email & video call support",
       "Weekly usage reports",
-      "Quarterly optimization",
+      "Quarterly optimisation",
     ],
     buttonText: "Choose Growth",
     buttonHref: "/contact",
@@ -51,11 +51,11 @@ const pricingPlans: PricingCardProps[] = [
     features: [
       "4+ AI automation solutions",
       "24-hour maintenance SLA",
-      "Dedicated account manager",
+      "Dedicated support",
       "Custom reporting dashboards",
-      "Monthly strategy calls",
+      "Monthly optimisation calls",
     ],
-    buttonText: "Contact Us",
+    buttonText: "Choose Scale",
     buttonHref: "/contact",
     buttonVariant: "primary",
   },
@@ -70,17 +70,17 @@ const faqs = [
   {
     question: "What does 'monthly maintenance' include?",
     answer:
-      "Monthly maintenance covers hosting, monitoring, updates, and fixes. If something breaks or needs adjusting, we handle it. We also keep your AI models up to date and optimize performance based on usage patterns.",
+      "Monthly maintenance covers hosting, monitoring, updates, and fixes. If something breaks or needs adjusting, we handle it. We also keep your AI models up to date and optimise performance based on usage patterns.",
   },
   {
     question: "Can I upgrade or change solutions later?",
     answer:
-      "Absolutely. We designed our tiers to grow with your business. Adding new solutions or upgrading your tier is straightforward—we'll discuss the scope and provide a clear quote for any changes.",
+      "Absolutely. We designed our tiers to grow with your business. Adding new solutions or upgrading your tier is straightforward. We'll discuss the scope and provide a clear quote for any changes.",
   },
   {
     question: "Why the price ranges?",
     answer:
-      "Every business is different. The exact price depends on complexity, integrations needed, and data volume. We'll give you a fixed quote after our discovery call—no surprises.",
+      "Every business is different. The exact price depends on complexity, integrations needed, and data volume. We'll give you a fixed quote after our discovery call. No surprises.",
   },
   {
     question: "Do I own the automations you build?",

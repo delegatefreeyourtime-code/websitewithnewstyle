@@ -341,29 +341,27 @@ function DefaultFanCard({ item, active }: { item: CardStackItem; active: boolean
         )}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
       <div className="relative z-10 flex h-full flex-col justify-end p-5">
-        {item.tag && (
-          <span className="mb-2 inline-block w-fit rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-xs font-medium text-white">
-            {item.tag}
-          </span>
-        )}
-        <div className="truncate text-lg font-semibold text-white">
+        <div className="text-lg font-semibold text-white leading-tight">
           {item.title}
         </div>
         {item.description ? (
-          <div className="mt-1 line-clamp-2 text-sm text-white/80">
+          <div className="mt-1.5 line-clamp-3 text-sm text-white/85 leading-relaxed">
             {item.description}
           </div>
         ) : null}
         {active && item.href && item.ctaLabel && (
           <Link
             href={item.href}
-            className="pointer-events-auto mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-foreground shadow-lg transition-all hover:bg-white/90 hover:scale-105"
+            className="pointer-events-auto mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-white to-white/95 px-6 py-2.5 text-sm font-semibold text-foreground shadow-lg shadow-black/20 transition-all duration-300 hover:shadow-xl hover:shadow-white/25 hover:scale-105 hover:from-white hover:to-white group relative overflow-hidden"
           >
-            {item.ctaLabel}
-            <SquareArrowOutUpRight className="h-4 w-4" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+            <span className="relative z-10 flex items-center gap-2">
+              {item.ctaLabel}
+              <SquareArrowOutUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </span>
           </Link>
         )}
       </div>

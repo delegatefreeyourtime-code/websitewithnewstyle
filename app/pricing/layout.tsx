@@ -27,7 +27,7 @@ const faqJsonLd = {
       name: "What does 'monthly maintenance' include?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Monthly maintenance covers hosting, monitoring, updates, and fixes. If something breaks or needs adjusting, we handle it. We also keep your AI models up to date and optimize performance based on usage patterns.",
+        text: "Monthly maintenance covers hosting, monitoring, updates, and fixes. If something breaks or needs adjusting, we handle it. We also keep your AI models up to date and optimise performance based on usage patterns.",
       },
     },
     {
@@ -35,7 +35,7 @@ const faqJsonLd = {
       name: "Can I upgrade or change solutions later?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Absolutely. We designed our tiers to grow with your business. Adding new solutions or upgrading your tier is straightforward—we'll discuss the scope and provide a clear quote for any changes.",
+        text: "Absolutely. We designed our tiers to grow with your business. Adding new solutions or upgrading your tier is straightforward. We'll discuss the scope and provide a clear quote for any changes.",
       },
     },
     {

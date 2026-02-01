@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { GradientText } from "@/components/ui/gradient-text";
 import { ShinyButton } from "@/components/ui/shiny-button";
-import { DotPattern } from "@/components/ui/grid-pattern";
 import { SparklesText } from "@/components/ui/sparkles-text";
 import { SplineScene } from "@/components/ui/splite";
 import { Card } from "@/components/ui/card";
@@ -43,7 +42,7 @@ const timelineData = [
       <div>
         <h4 className="text-2xl font-bold text-foreground mb-4">Design</h4>
         <p className="text-muted-foreground text-sm md:text-base mb-6">
-          We architect a solution tailored to your specific needs. No off-the-shelf templates—every automation is designed around your existing tools, data, and workflows.
+          We architect a solution tailored to your specific needs. No off-the-shelf templates. Every automation is designed around your existing tools, data, and workflows.
         </p>
         <div className="space-y-2">
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
@@ -68,7 +67,7 @@ const timelineData = [
       <div>
         <h4 className="text-2xl font-bold text-foreground mb-4">Deploy</h4>
         <p className="text-muted-foreground text-sm md:text-base mb-6">
-          We build your automation and deploy it into your environment. You&apos;ll have a working system within 6 weeks, fully tested and ready to use.
+          We build your automation and deploy it into your environment. You&apos;ll have a working system before you know it, fully tested and ready to use.
         </p>
         <div className="space-y-2">
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
@@ -91,9 +90,9 @@ const timelineData = [
     title: "Step 4",
     content: (
       <div>
-        <h4 className="text-2xl font-bold text-foreground mb-4">Optimize</h4>
+        <h4 className="text-2xl font-bold text-foreground mb-4">Optimise</h4>
         <p className="text-muted-foreground text-sm md:text-base mb-6">
-          Once live, we monitor performance and tune for accuracy and speed. Real-world usage always reveals opportunities to improve—we handle those adjustments.
+          Once live, we monitor performance and tune for accuracy and speed. Real-world usage always reveals opportunities to improve, and we handle those adjustments.
         </p>
         <div className="space-y-2">
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
@@ -103,7 +102,7 @@ const timelineData = [
             <span className="text-orange-500">✓</span> Accuracy improvements
           </div>
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
-            <span className="text-orange-500">✓</span> Speed optimization
+            <span className="text-orange-500">✓</span> Speed optimisation
           </div>
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
             <span className="text-orange-500">✓</span> User feedback integration
@@ -118,7 +117,7 @@ const timelineData = [
       <div>
         <h4 className="text-2xl font-bold text-foreground mb-4">Manage</h4>
         <p className="text-muted-foreground text-sm md:text-base mb-6">
-          Ongoing support is included in every package. Updates, maintenance, fixes—we handle it all. Your automation just works, month after month.
+          Ongoing support is included in every package. Updates, maintenance, fixes: we handle it all. Your automation just works, month after month.
         </p>
         <div className="space-y-2">
           <div className="flex gap-2 items-center text-muted-foreground text-sm">
@@ -150,9 +149,8 @@ const timeline = [
 export default function HowItWorksPage() {
   return (
     <>
-      {/* Header */}
-      <section className="relative py-24 pt-32 bg-white overflow-hidden">
-        <DotPattern className="opacity-50" />
+      {/* Header - transparent to show global liquid glass background */}
+      <section className="relative py-24 pt-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -166,8 +164,8 @@ export default function HowItWorksPage() {
                 Works
               </GradientText>
             </h1>
-            <p className="mt-6 text-xl text-muted-foreground">
-              From first conversation to fully automated workflow—here&apos;s what working with us looks like.
+            <p className="mt-6 text-xl text-black/80">
+              From first conversation to fully automated workflow: here&apos;s what working with us looks like.
             </p>
           </motion.div>
         </div>

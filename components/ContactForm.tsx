@@ -15,6 +15,13 @@ const automationOptions = [
   "Other / Not Sure",
 ];
 
+const planOptions = [
+  "Starter",
+  "Growth",
+  "Scale",
+  "Not sure yet",
+];
+
 const inputClasses = cn(
   "w-full rounded-lg border border-border bg-white px-4 py-3",
   "text-foreground placeholder-muted-foreground",
@@ -27,6 +34,7 @@ export default function ContactForm() {
     name: "",
     email: "",
     company: "",
+    plan: "",
     automation: "",
     message: "",
   });
@@ -187,6 +195,33 @@ export default function ContactForm() {
         transition={{ duration: 0.4, delay: 0.25 }}
       >
         <label
+          htmlFor="plan"
+          className="block text-sm font-medium text-foreground mb-2"
+        >
+          Which plan are you most interested in?
+        </label>
+        <select
+          id="plan"
+          name="plan"
+          value={formData.plan}
+          onChange={handleChange}
+          className={inputClasses}
+        >
+          <option value="">Select an option</option>
+          {planOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
+      >
+        <label
           htmlFor="automation"
           className="block text-sm font-medium text-foreground mb-2"
         >
@@ -211,7 +246,7 @@ export default function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.3 }}
+        transition={{ duration: 0.4, delay: 0.35 }}
       >
         <label
           htmlFor="message"
@@ -245,7 +280,7 @@ export default function ContactForm() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.35 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
       >
         <Button
           type="submit"

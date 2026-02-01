@@ -5,23 +5,30 @@ import { buttonVariants } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+interface ProductFeature {
+  title: string
+  subtitle: string
+}
+
 interface ProductRevealCardProps {
   name?: string
   price?: string
   originalPrice?: string
   image?: string
   description?: string
+  features?: ProductFeature[]
   onAdd?: () => void
   enableAnimations?: boolean
   className?: string
 }
 
 export function ProductRevealCard({
-  name = "Premium Wireless Headphones",
+  name = "AI Automation Solution",
   price,
   originalPrice,
-  image = "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=800&h=600&fit=crop",
-  description = "Experience studio-quality sound with advanced noise cancellation and 30-hour battery life. Perfect for music lovers and professionals.",
+  image = "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+  description = "Transform your business operations with intelligent automation. Save hours every week with AI-powered tools tailored to your needs.",
+  features,
   onAdd,
   enableAnimations = true,
   className,
@@ -162,30 +169,30 @@ export function ProductRevealCard({
       {/* Reveal Overlay */}
       <motion.div
         variants={overlayVariants}
-        className="absolute inset-0 bg-background/96 backdrop-blur-xl flex flex-col justify-end"
+        className="absolute inset-0 bg-black flex flex-col justify-end"
       >
         <div className="p-6 space-y-4">
           {/* Product Description */}
           <motion.div variants={contentVariants}>
-            <h4 className="font-semibold mb-2">Product Details</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h4 className="font-semibold mb-2 text-white">Product Details</h4>
+            <p className="text-sm text-gray-300 leading-relaxed">
               {description}
             </p>
           </motion.div>
 
           {/* Features */}
-          <motion.div variants={contentVariants}>
-            <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="bg-muted/50 rounded-lg p-2 text-center">
-                <div className="font-semibold">30h Battery</div>
-                <div className="text-muted-foreground">Long-lasting</div>
+          {features && features.length > 0 && (
+            <motion.div variants={contentVariants}>
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                {features.map((feature, index) => (
+                  <div key={index} className="bg-white/10 rounded-lg p-2 text-center">
+                    <div className="font-semibold text-white">{feature.title}</div>
+                    <div className="text-gray-300">{feature.subtitle}</div>
+                  </div>
+                ))}
               </div>
-              <div className="bg-muted/50 rounded-lg p-2 text-center">
-                <div className="font-semibold">Noise Cancel</div>
-                <div className="text-muted-foreground">Studio quality</div>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
 
           {/* Action Buttons */}
           <motion.div variants={contentVariants} className="space-y-3">
@@ -198,9 +205,9 @@ export function ProductRevealCard({
               className={cn(
                 buttonVariants({ variant: "default" }),
                 "w-full h-12 font-medium",
-                "bg-gradient-to-r from-primary to-primary/90",
-                "hover:from-primary/90 hover:to-primary",
-                "shadow-lg shadow-primary/25"
+                "bg-white text-black",
+                "hover:bg-gray-100",
+                "shadow-lg"
               )}
             >
               Get Started
@@ -214,7 +221,8 @@ export function ProductRevealCard({
               whileTap="tap"
               className={cn(
                 buttonVariants({ variant: "outline" }),
-                "w-full h-10 font-medium"
+                "w-full h-10 font-medium",
+                "border-white/30 text-white hover:bg-white/10 hover:text-white"
               )}
             >
               View Details

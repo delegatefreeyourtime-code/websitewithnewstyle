@@ -3,18 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
-import { GlassFilter } from "@/components/ui/liquid-glass";
-
-// Dynamic import with SSR disabled for Three.js component
-const LiquidGradient = dynamic(
-  () => import("@/components/ui/flow-gradient-hero-section"),
-  {
-    ssr: false,
-    loading: () => <div className="fixed inset-0 bg-gradient-to-br from-purple-100 via-pink-50 to-cyan-100" />
-  }
-);
 
 export default function Hero() {
   const fadeUpVariants = {
@@ -32,15 +21,7 @@ export default function Hero() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Glass Filter for header effect */}
-      <GlassFilter />
-
-      {/* Fixed Liquid Gradient Background - extends behind header */}
-      <div className="fixed inset-0 w-full h-full" style={{ zIndex: 0 }}>
-        <LiquidGradient className="w-full h-full" showPauseButton />
-      </div>
-
-      {/* Content Section */}
+      {/* Content Section - liquid background is now global */}
       <section className="relative min-h-screen w-full flex items-center justify-center" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-6 md:px-8 -mt-16 md:-mt-24">
           <div className="max-w-4xl mx-auto text-center">
@@ -57,7 +38,7 @@ export default function Hero() {
                 </span>
                 <br />
                 <span className="text-foreground/70">
-                  Reclaim Your Time.
+                  Free Your Time.
                 </span>
               </h1>
             </motion.div>
@@ -70,7 +51,7 @@ export default function Hero() {
               animate="visible"
             >
               <p className="text-base sm:text-lg md:text-xl text-foreground/80 mb-10 leading-relaxed max-w-2xl mx-auto px-4">
-                Done-for-you AI automation—built, deployed, and managed by us.
+                Done-for-you AI automation: built, deployed, and managed by us.
                 Stop drowning in repetitive tasks and focus on growing your business.
               </p>
             </motion.div>

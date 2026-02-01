@@ -10,7 +10,7 @@ import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { TestimonialCard } from "@/components/ui/testimonial-card";
 import { TiltCard } from "@/components/ui/tilt-card";
 import { DotPattern } from "@/components/ui/grid-pattern";
-import { ProductRevealCard } from "@/components/ui/product-reveal-card";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import {
   ArrowRight,
   CheckCircle2,
@@ -18,44 +18,64 @@ import {
   Shield,
   Clock,
   Sparkles,
+  FileText,
+  MessageSquare,
+  Target,
+  BarChart3,
+  Receipt,
 } from "lucide-react";
 
 const solutions = [
   {
     name: "AI Proposal Generator",
     description:
-      "Transform client briefs into professionally written proposals in minutes. Save 3-5 hours per proposal with AI-powered writing that matches your brand voice.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+      "Transform client briefs into professionally written proposals in minutes. AI-powered writing that matches your brand voice.",
+    Icon: <FileText className="w-6 h-6" />,
+    href: "/contact?solution=proposals",
+    cta: "Learn more",
+    gradient: "bg-gradient-to-br from-violet-500/10 via-transparent to-purple-500/10",
+    featured: true,
   },
   {
     name: "Knowledge Chatbot",
     description:
-      "Give your team instant access to company knowledge via an intelligent RAG chatbot. Reduce internal support queries by 60% and onboard new hires faster.",
-    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=600&fit=crop",
+      "Give your team instant access to company knowledge via an intelligent RAG chatbot. Onboard new hires faster.",
+    Icon: <MessageSquare className="w-6 h-6" />,
+    href: "/contact?solution=chatbot",
+    cta: "Learn more",
+    gradient: "bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-500/10",
   },
   {
     name: "Lead Scoring System",
     description:
-      "Automatically discover and qualify prospects with web scraping and AI analysis. Generate 50-200 qualified leads per month without manual research.",
-    image: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&h=600&fit=crop",
+      "Automatically discover and qualify prospects with web scraping and AI analysis.",
+    Icon: <Target className="w-6 h-6" />,
+    href: "/contact?solution=leads",
+    cta: "Learn more",
+    gradient: "bg-gradient-to-br from-orange-500/10 via-transparent to-amber-500/10",
   },
   {
     name: "Status Reports",
     description:
-      "Generate comprehensive project updates automatically from your tools. Save 2-4 hours per week on reporting and never miss a deadline again.",
-    image: "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?w=800&h=600&fit=crop",
+      "Generate comprehensive project updates automatically from your existing tools.",
+    Icon: <BarChart3 className="w-6 h-6" />,
+    href: "/contact?solution=reports",
+    cta: "Learn more",
+    gradient: "bg-gradient-to-br from-emerald-500/10 via-transparent to-teal-500/10",
   },
   {
-    name: "Expense Categorization",
+    name: "Expense Categorisation",
     description:
-      "Stop manually categorizing receipts. AI-powered expense sorting that saves 5-10 hours per month on bookkeeping and improves accuracy.",
-    image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&h=600&fit=crop",
+      "AI-powered expense sorting that streamlines your bookkeeping and improves accuracy.",
+    Icon: <Receipt className="w-6 h-6" />,
+    href: "/contact?solution=expenses",
+    cta: "Learn more",
+    gradient: "bg-gradient-to-br from-pink-500/10 via-transparent to-rose-500/10",
   },
 ];
 
 const stats = [
   { value: 10, suffix: "+", label: "Hours saved weekly" },
-  { value: 90, suffix: "%", label: "Task accuracy" },
   { value: 6, suffix: " weeks", label: "Avg. deployment" },
 ];
 
@@ -94,12 +114,12 @@ const features = [
   },
   {
     icon: <Shield className="w-5 h-5" />,
-    title: "GDPR Compliant",
-    description: "Built with privacy first",
+    title: "No Technical Knowledge Required",
+    description: "We handle all the complexity",
   },
   {
     icon: <Clock className="w-5 h-5" />,
-    title: "24/7 Support",
+    title: "Around the Clock Support",
     description: "We're always here to help",
   },
 ];
@@ -135,24 +155,21 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <BentoGrid className="max-w-5xl mx-auto">
             {solutions.map((solution, index) => (
-              <motion.div
+              <BentoCard
                 key={solution.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <ProductRevealCard
-                  name={solution.name}
-                  description={solution.description}
-                  image={solution.image}
-                  onAdd={() => window.location.href = '/contact'}
-                />
-              </motion.div>
+                name={solution.name}
+                description={solution.description}
+                Icon={solution.Icon}
+                href={solution.href}
+                cta={solution.cta}
+                index={index}
+                gradient={solution.gradient}
+                featured={solution.featured}
+              />
             ))}
-          </div>
+          </BentoGrid>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -197,7 +214,7 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -449,7 +466,6 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/contact">
                 <ShinyButton className="text-lg px-10 py-5">
-                  <Sparkles className="h-5 w-5 mr-2" />
                   Book a Discovery Call
                 </ShinyButton>
               </Link>

@@ -8,60 +8,63 @@ import { CardStack, CardStackItem } from "@/components/ui/card-stack";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-// Solutions ordered from most expensive to least expensive
+// Solutions with AI Proposal Generator first, consistent abstract mesh gradient images
 const solutions: CardStackItem[] = [
   {
-    id: "lead-scoring",
-    title: "Web Scrapers + Lead Scoring",
-    description: "Automatically discover and qualify prospects with intelligent web scraping and AI-powered lead scoring. Generate 50-200 qualified leads per month without manual research. Includes custom scoring criteria and CRM integration.",
-    imageSrc: "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&h=600&fit=crop",
+    id: "proposal-generator",
+    title: "AI Proposal Generator",
+    description: "Transform client briefs into professionally written proposals in minutes. Our AI learns your brand voice and proposal structure, delivering consistent, high-quality documents.",
+    imageSrc: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
+    href: "/contact?solution=proposal-generator",
+    ctaLabel: "Get Started",
+  },
+  {
+    id: "lead-generation",
+    title: "Lead Generation",
+    description: "Automatically discover and qualify prospects with intelligent web scraping and AI-powered lead scoring. Includes custom scoring criteria and CRM integration.",
+    imageSrc: "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&h=600&fit=crop",
     href: "/contact?solution=lead-scoring",
-    tag: "50-200 qualified leads monthly",
     ctaLabel: "Get Started",
   },
   {
     id: "knowledge-chatbot",
     title: "Company Knowledge RAG Chatbot",
-    description: "Give your team instant access to company knowledge via an intelligent AI chatbot. Reduce internal support queries by 60%, onboard new hires faster, and ensure consistent answers across your organisation. Works with your existing documents and systems.",
-    imageSrc: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=600&fit=crop",
+    description: "Give your team instant access to company knowledge via an intelligent AI chatbot. Works with your existing documents and systems to onboard new hires faster and ensure consistent answers.",
+    imageSrc: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=600&fit=crop",
     href: "/contact?solution=knowledge-chatbot",
-    tag: "Reduce queries by 60%",
-    ctaLabel: "Get Started",
-  },
-  {
-    id: "proposal-generator",
-    title: "AI Proposal Generator",
-    description: "Transform client briefs into professionally written proposals in minutes. Our AI learns your brand voice and proposal structure, delivering consistent, high-quality documents. Save 3-5 hours per proposal while maintaining your professional standards.",
-    imageSrc: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
-    href: "/contact?solution=proposal-generator",
-    tag: "Save 3-5 hours per proposal",
     ctaLabel: "Get Started",
   },
   {
     id: "status-reports",
     title: "Automated Project Status Reports",
-    description: "Generate comprehensive project updates automatically from your existing tools. Pull data from project management systems, time tracking, and communication tools to create polished status reports. Save 2-4 hours per week on reporting.",
-    imageSrc: "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?w=800&h=600&fit=crop",
+    description: "Generate comprehensive project updates automatically from your existing tools. Pull data from project management systems, time tracking, and communication tools.",
+    imageSrc: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&h=600&fit=crop",
     href: "/contact?solution=status-reports",
-    tag: "Save 2-4 hours weekly",
     ctaLabel: "Get Started",
   },
   {
     id: "expense-categorization",
-    title: "AI Expense Categorization",
-    description: "Stop manually categorizing receipts and expenses. Our AI automatically sorts and categorizes your business expenses with high accuracy, integrating with your accounting software. Save 5-10 hours per month on bookkeeping tasks.",
-    imageSrc: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&h=600&fit=crop",
+    title: "AI Expense Categorisation",
+    description: "Stop manually categorising receipts and expenses. Our AI automatically sorts and categorises your business expenses with high accuracy, integrating with your accounting software.",
+    imageSrc: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
     href: "/contact?solution=expense-categorization",
-    tag: "Save 5-10 hours monthly",
     ctaLabel: "Get Started",
+  },
+  {
+    id: "custom-solution",
+    title: "Custom Solution",
+    description: "Need something specific? We'll build a tailored automation solution for your unique requirements. If you can describe it, we can probably automate it.",
+    imageSrc: "https://images.unsplash.com/photo-1614850523011-8f49ffc73908?w=800&h=600&fit=crop",
+    href: "/contact?solution=custom",
+    ctaLabel: "Get in Touch",
   },
 ];
 
 export default function SolutionsPage() {
   return (
     <>
-      {/* Solutions Card Stack */}
-      <section className="py-24 pt-32 bg-muted relative overflow-hidden">
+      {/* Solutions Card Stack - transparent to show global liquid glass background */}
+      <section className="py-24 pt-32 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +75,7 @@ export default function SolutionsPage() {
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               Our Solutions
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-black/80 max-w-2xl mx-auto">
               Done-for-you AI automation, built and managed by us. Swipe to explore.
             </p>
           </motion.div>

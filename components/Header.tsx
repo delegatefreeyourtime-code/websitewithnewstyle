@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Lightbulb, DollarSign, Cog, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { GlassFilter } from "@/components/ui/liquid-glass";
 
 const navigation = [
   { name: "Solutions", url: "/solutions", icon: Lightbulb },
@@ -23,7 +22,6 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
 
   const activeTab = navigation.find(item => pathname === item.url)?.name || null;
-  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,51 +32,16 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const glassContainerStyle = isHomePage ? {
-    boxShadow: "0 6px 6px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.05)",
-  } : undefined;
-
   return (
     <header className="sticky top-0 z-50">
-      <GlassFilter />
-
       <nav className="mx-auto max-w-7xl px-6 lg:px-8 pt-4" aria-label="Global">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className={cn(
-            "flex h-16 items-center justify-between rounded-full px-4",
-            isHomePage && "relative overflow-hidden"
-          )}
-          style={glassContainerStyle}
+          className="flex h-16 items-center justify-between rounded-full px-4"
         >
-          {isHomePage && (
-            <>
-              <div
-                className="absolute inset-0 z-0 overflow-hidden rounded-full"
-                style={{
-                  backdropFilter: "blur(12px)",
-                  WebkitBackdropFilter: "blur(12px)",
-                  filter: "url(#glass-distortion)",
-                  isolation: "isolate",
-                }}
-              />
-              <div
-                className="absolute inset-0 z-10 rounded-full"
-                style={{ background: "rgba(255, 255, 255, 0.6)" }}
-              />
-              <div
-                className="absolute inset-0 z-20 rounded-full overflow-hidden"
-                style={{
-                  boxShadow:
-                    "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.7), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5)",
-                }}
-              />
-            </>
-          )}
-
-          <div className={cn("flex lg:flex-1", isHomePage && "relative z-30")}>
+          <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
               <Image
                 src="/logo.png"
@@ -91,7 +54,7 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className={cn("flex lg:hidden", isHomePage && "relative z-30")}>
+          <div className="flex lg:hidden">
             <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
@@ -126,7 +89,7 @@ export default function Header() {
             </button>
           </div>
 
-          <div className={cn("hidden lg:flex", isHomePage && "relative z-30")}>
+          <div className="hidden lg:flex">
             <div className="flex items-center gap-1 bg-white/80 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
               {navigation.map((item) => {
                 const Icon = item.icon;
@@ -170,16 +133,16 @@ export default function Header() {
             </div>
           </div>
 
-          <div className={cn("hidden lg:flex lg:flex-1 lg:justify-end lg:gap-3", isHomePage && "relative z-30")}>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-3">
             <Button asChild className="rounded-full">
               <Link href="/contact">Get In Touch</Link>
             </Button>
             <Button
+              asChild
               variant="outline"
               className="rounded-full"
-              onClick={() => window.location.href = '/contact'}
             >
-              Client Portal
+              <Link href="/client-portal">Client Portal</Link>
             </Button>
           </div>
         </motion.div>
@@ -228,14 +191,13 @@ export default function Header() {
                     </Link>
                   </Button>
                   <Button
+                    asChild
                     variant="outline"
                     className="w-full rounded-full h-11"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      window.location.href = '/contact';
-                    }}
                   >
-                    Client Portal
+                    <Link href="/client-portal" onClick={() => setMobileMenuOpen(false)}>
+                      Client Portal
+                    </Link>
                   </Button>
                 </div>
               </div>

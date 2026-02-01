@@ -51,7 +51,7 @@ export function AboutSection2() {
             <TimelineContent animationNum={3} timelineRef={timelineRef}>
               <p className="text-lg text-muted-foreground mt-8 max-w-lg">
                 We believe AI should handle the boring stuff so you can focus on
-                what matters—growing your business and serving your customers.
+                what matters: growing your business and serving your customers.
               </p>
             </TimelineContent>
           </div>
