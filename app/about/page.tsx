@@ -5,14 +5,8 @@ import Link from "next/link";
 import { useRef } from "react";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import {
-  Sparkles,
-  Zap,
-  Target,
-  ArrowRight,
-  Star,
-  Rocket,
-} from "lucide-react";
+import { Zap, Star, Rocket, Target, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const stats = [
   { value: 34, suffix: "", label: "Hours Saved Weekly on Average Per Client", icon: Zap },
@@ -26,19 +20,14 @@ const values = [
     description:
       "No jargon. No hidden fees. We explain what we're building and how it works. You'll always know exactly where you stand.",
     icon: Target,
-    gradient: "from-blue-500 to-cyan-500",
-    delay: 0,
   },
   {
     title: "Results-Obsessed",
     description:
       "We only recommend solutions that deliver real ROI. If automation won't save you meaningful time or money, we'll tell you upfront.",
     icon: Zap,
-    gradient: "from-amber-500 to-orange-500",
-    delay: 0.1,
   },
 ];
-
 
 export default function AboutPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,25 +41,38 @@ export default function AboutPage() {
 
   return (
     <div ref={containerRef} className="relative">
-      {/* Hero Section - uses global liquid gradient background */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255,90,31,0.08) 0%, transparent 60%)" }}
+        />
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="relative z-10 text-center px-6 max-w-5xl mx-auto"
         >
-          {/* Main headline with staggered animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center gap-2 border border-[#1E2028] bg-[#16181D] px-4 py-1.5 mb-8"
+          >
+            <span className="text-[11px] font-semibold tracking-[0.12em] uppercase text-[#8B8C95]">About Delegate</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold tracking-tight text-[#F3F4F6] mb-6 uppercase leading-[1.05]"
           >
             We Build
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="block text-black"
+              className="block text-[#FF5A1F]"
             >
               The Future
             </motion.span>
@@ -80,20 +82,18 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-xl md:text-2xl text-black/80 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-[#8B8C95] max-w-2xl mx-auto leading-relaxed"
           >
             Enterprise-grade AI automation, made accessible for UK SMEs.
             We handle the complexity so you can focus on growth.
           </motion.p>
         </motion.div>
-
-        {/* Bottom gradient fade to next section */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-muted to-transparent pointer-events-none z-10" />
       </section>
 
-      {/* Mission Section - Cinematic */}
-      <section className="py-32 bg-muted relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      {/* Mission Section */}
+      <section className="py-32 bg-[#16181D] relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -101,30 +101,21 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="inline-block px-4 py-1.5 rounded-full bg-violet-100 text-violet-700 text-sm font-semibold mb-6"
-              >
-                Our Mission
-              </motion.span>
+              <Badge variant="secondary" className="mb-6">Our Mission</Badge>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#F3F4F6] mb-8 leading-tight uppercase">
                 Making AI Work
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-blue-600">
-                  For Everyone
-                </span>
+                <span className="block text-[#FF5A1F]">For Everyone</span>
               </h2>
 
-              <div className="space-y-6 text-lg text-muted-foreground">
+              <div className="space-y-6 text-[#8B8C95] leading-relaxed">
                 <p>
                   Every SME owner knows the feeling: spending hours on tasks that don&apos;t
                   grow your business. Writing the same reports. Categorizing expenses.
                   Hunting for information across scattered documents.
                 </p>
                 <p>
-                  <span className="text-foreground font-semibold">AI can handle this work now</span>, but
+                  <span className="text-[#F3F4F6] font-semibold">AI can handle this work now</span>, but
                   most businesses don&apos;t have the time or expertise to implement it themselves.
                 </p>
                 <p>
@@ -133,7 +124,7 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            {/* Vertical Stats */}
+            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -141,61 +132,51 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-violet-500 to-blue-500 rounded-3xl blur-2xl opacity-20" />
-
-                {/* Vertical stats stack */}
-                <div className="relative space-y-4">
-                  {stats.map((stat, index) => {
-                    const Icon = stat.icon;
-                    return (
-                      <motion.div
-                        key={stat.label}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
-                        whileHover={{ scale: 1.02, x: 10 }}
-                        className="bg-white border border-border rounded-2xl p-6 shadow-lg"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center text-white shadow-md">
-                            <Icon className="w-6 h-6" />
-                          </div>
-                          <div>
-                            <div className="text-3xl font-bold text-foreground">
-                              <AnimatedCounter
-                                value={stat.value}
-                                suffix={stat.suffix}
-                                duration={2.5}
-                              />
-                            </div>
-                            <p className="text-muted-foreground text-sm">{stat.label}</p>
-                          </div>
+              <div className="space-y-4">
+                {stats.map((stat, index) => {
+                  const Icon = stat.icon;
+                  return (
+                    <motion.div
+                      key={stat.label}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+                      className="bg-[#0B0C10] border border-[#1E2028] p-6 hover:border-[#FF5A1F]/30 transition-colors"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="flex-shrink-0 w-12 h-12 bg-[#FF5A1F] flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,90,31,0.3)]">
+                          <Icon className="w-5 h-5" />
                         </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                        <div>
+                          <div className="text-3xl font-bold text-[#00E676]">
+                            <AnimatedCounter
+                              value={stat.value}
+                              suffix={stat.suffix}
+                              duration={2.5}
+                            />
+                          </div>
+                          <p className="text-[#8B8C95] text-sm">{stat.label}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Values Section - Bold Cards */}
-      <section className="py-32 bg-foreground relative overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-conic from-violet-500/10 via-transparent to-blue-500/10"
-          />
-        </div>
+      {/* Values Section */}
+      <section className="py-32 bg-[#0B0C10] relative overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,90,31,0.04) 0%, transparent 70%)" }}
+        />
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,15 +184,15 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-20"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#F3F4F6] mb-4 uppercase">
               What We Stand For
             </h2>
-            <p className="text-xl text-white/60">
+            <p className="text-xl text-[#8B8C95]">
               The principles that guide everything we do
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
@@ -220,21 +201,16 @@ export default function AboutPage() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: value.delay }}
-                  whileHover={{ y: -10 }}
-                  className="group"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300">
-                    <motion.div
-                      whileHover={{ rotate: 10, scale: 1.1 }}
-                      className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${value.gradient} text-white mb-6 shadow-lg`}
-                    >
+                  <div className="h-full bg-[#16181D] border border-[#1E2028] p-8 hover:border-[#FF5A1F]/30 transition-all duration-300">
+                    <div className="w-14 h-14 bg-[#FF5A1F] flex items-center justify-center text-white mb-6 shadow-[0_0_15px_rgba(255,90,31,0.3)]">
                       <Icon className="w-7 h-7" />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-white mb-4">
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#F3F4F6] mb-4 uppercase">
                       {value.title}
                     </h3>
-                    <p className="text-white/60 leading-relaxed">
+                    <p className="text-[#8B8C95] leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -245,43 +221,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Epic CTA Section */}
-      <section className="relative py-40 overflow-hidden">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-600 via-blue-600 to-cyan-600">
-          <motion.div
-            animate={{
-              backgroundPosition: ["0% 0%", "100% 100%"],
-            }}
-            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-            className="absolute inset-0 opacity-50"
-            style={{
-              backgroundImage: `radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)`,
-              backgroundSize: "100% 100%",
-            }}
-          />
-
-          {/* Floating particles */}
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                y: [0, -30, 0],
-                opacity: [0.3, 0.8, 0.3],
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-              className="absolute w-2 h-2 bg-white/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
+      {/* CTA Section */}
+      <section className="relative py-32 bg-[#16181D] overflow-hidden">
+        <div className="absolute inset-0 grid-overlay" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,90,31,0.06) 0%, transparent 70%)" }}
+        />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <motion.div
@@ -290,34 +236,21 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity }}
-              className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm mb-8"
-            >
-              <Sparkles className="w-10 h-10 text-white" />
-            </motion.div>
-
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F3F4F6] mb-6 uppercase">
               Ready to Transform
-              <span className="block">Your Business?</span>
+              <span className="block text-[#FF5A1F]">Your Business?</span>
             </h2>
 
-            <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-2xl mx-auto">
+            <p className="text-xl text-[#8B8C95] mb-12 max-w-2xl mx-auto">
               Let&apos;s have a conversation about your challenges and how AI can solve them.
             </p>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ShinyButton className="bg-white text-foreground hover:bg-gray-100 text-lg px-10 py-6 shadow-2xl shadow-black/25">
-                <Link href="/contact" className="flex items-center gap-3">
-                  Start Your Journey
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+            <Link href="/contact">
+              <ShinyButton className="text-lg px-10 py-4">
+                Start Your Journey
+                <ArrowRight className="inline-block ml-2 w-5 h-5" />
               </ShinyButton>
-            </motion.div>
+            </Link>
           </motion.div>
         </div>
       </section>

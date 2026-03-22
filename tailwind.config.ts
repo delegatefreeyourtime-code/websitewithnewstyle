@@ -39,14 +39,25 @@ const config: Config = {
           foreground: "var(--destructive-foreground)",
         },
         input: "var(--input)",
+        // Obsidian Kinetic direct utilities
+        circuit: "#FF5A1F",
+        growth: "#00E676",
+        surface: "#0B0C10",
+        "surface-container": "#16181D",
+        "nav-muted": "#8B8C95",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["var(--font-space)", "Space Grotesk", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        lg: "0.5rem",
-        md: "calc(0.5rem - 2px)",
-        sm: "calc(0.5rem - 4px)",
+        DEFAULT: "0px",
+        sm: "0px",
+        md: "0px",
+        lg: "0px",
+        xl: "0px",
+        "2xl": "0px",
+        "3xl": "0px",
+        full: "9999px",
       },
       keyframes: {
         "fade-up": {
@@ -77,11 +88,22 @@ const config: Config = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(255, 90, 31, 0.3)" },
+          "50%": { boxShadow: "0 0 40px rgba(255, 90, 31, 0.6)" },
+        },
+        "counter-pop": {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "60%": { transform: "scale(1.05)" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.3s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "counter-pop": "counter-pop 0.4s ease-out forwards",
       },
     },
   },

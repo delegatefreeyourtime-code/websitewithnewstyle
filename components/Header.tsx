@@ -5,12 +5,10 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Lightbulb, DollarSign, Cog, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, DollarSign, Cog, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navigation = [
-  { name: "Solutions", url: "/solutions", icon: Lightbulb },
   { name: "Pricing", url: "/pricing", icon: DollarSign },
   { name: "How It Works", url: "/how-it-works", icon: Cog },
   { name: "About", url: "/about", icon: Users },
@@ -19,17 +17,14 @@ const navigation = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const activeTab = navigation.find(item => pathname === item.url)?.name || null;
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -39,8 +34,9 @@ export default function Header() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex h-16 items-center justify-between rounded-full px-4"
+          className="flex h-16 items-center justify-between px-4"
         >
+          {/* Logo */}
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 transition-opacity hover:opacity-80">
               <Image
@@ -54,10 +50,11 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* Mobile menu button */}
           <div className="flex lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
+              className="-m-2.5 inline-flex items-center justify-center p-2.5 text-[#8B8C95] hover:text-[#F3F4F6] transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -89,43 +86,37 @@ export default function Header() {
             </button>
           </div>
 
+          {/* Desktop nav */}
           <div className="hidden lg:flex">
-            <div className="flex items-center gap-1 bg-white/80 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+            <div
+              className={cn(
+                "flex items-center gap-1 py-1.5 px-2 transition-all duration-300",
+                scrolled
+                  ? "bg-[#16181D]/90 backdrop-blur-xl border border-[#1E2028]"
+                  : "bg-[#16181D]/60 backdrop-blur-md border border-[#1E2028]/50"
+              )}
+            >
               {navigation.map((item) => {
-                const Icon = item.icon;
                 const isActive = activeTab === item.name;
-
                 return (
                   <Link
                     key={item.name}
                     href={item.url}
                     className={cn(
-                      "relative cursor-pointer text-sm font-medium px-5 py-2 rounded-full transition-colors",
-                      "text-foreground/80 hover:text-foreground",
-                      isActive && "text-foreground"
+                      "relative cursor-pointer text-[13px] font-medium px-5 py-2 tracking-[0.08em] uppercase transition-colors",
+                      isActive
+                        ? "text-[#F3F4F6]"
+                        : "text-[#8B8C95] hover:text-[#F3F4F6]"
                     )}
                   >
-                    <span className="hidden md:inline">{item.name}</span>
-                    <span className="md:hidden">
-                      <Icon size={18} strokeWidth={2.5} />
-                    </span>
+                    {item.name}
                     {isActive && (
                       <motion.div
-                        layoutId="lamp"
-                        className="absolute inset-0 w-full bg-muted rounded-full -z-10"
+                        layoutId="active-indicator"
+                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF5A1F]"
                         initial={false}
-                        transition={{
-                          type: "spring",
-                          stiffness: 300,
-                          damping: 30,
-                        }}
-                      >
-                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-foreground rounded-t-full">
-                          <div className="absolute w-12 h-6 bg-foreground/20 rounded-full blur-md -top-2 -left-2" />
-                          <div className="absolute w-8 h-6 bg-foreground/20 rounded-full blur-md -top-1" />
-                          <div className="absolute w-4 h-4 bg-foreground/20 rounded-full blur-sm top-0 left-2" />
-                        </div>
-                      </motion.div>
+                        transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                      />
                     )}
                   </Link>
                 );
@@ -133,20 +124,24 @@ export default function Header() {
             </div>
           </div>
 
+          {/* CTA buttons */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-3">
-            <Button asChild className="rounded-full">
-              <Link href="/contact">Get In Touch</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-full"
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-5 py-2 text-sm font-semibold text-white bg-[#FF5A1F] hover:bg-[#FF7040] transition-colors tracking-wide shadow-[0_0_20px_rgba(255,90,31,0.3)] hover:shadow-[0_0_30px_rgba(255,90,31,0.5)]"
             >
-              <Link href="/client-portal">Client Portal</Link>
-            </Button>
+              Get In Touch
+            </Link>
+            <Link
+              href="/client-portal"
+              className="inline-flex items-center px-5 py-2 text-sm font-semibold text-[#F3F4F6] border border-[#FF5A1F]/40 hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 transition-colors tracking-wide"
+            >
+              Client Portal
+            </Link>
           </div>
         </motion.div>
 
+        {/* Mobile menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -155,7 +150,7 @@ export default function Header() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
               id="mobile-menu"
-              className="lg:hidden absolute left-6 right-6 top-full mt-2 bg-white rounded-2xl border border-neutral-200 shadow-xl overflow-hidden"
+              className="lg:hidden absolute left-6 right-6 top-full mt-2 bg-[#16181D] border border-[#1E2028] shadow-xl overflow-hidden"
             >
               <div className="py-2">
                 {navigation.map((item, index) => {
@@ -171,34 +166,34 @@ export default function Header() {
                       <Link
                         href={item.url}
                         className={cn(
-                          "flex items-center gap-3 px-5 py-3 text-base font-medium transition-colors",
+                          "flex items-center gap-3 px-5 py-3 text-sm font-medium tracking-[0.08em] uppercase transition-colors",
                           isActive
-                            ? "bg-neutral-100 text-foreground"
-                            : "text-foreground/70 hover:bg-neutral-50 hover:text-foreground"
+                            ? "bg-[#1E2028] text-[#F3F4F6] border-l-2 border-[#FF5A1F]"
+                            : "text-[#8B8C95] hover:bg-[#1E2028] hover:text-[#F3F4F6]"
                         )}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <Icon size={18} className={isActive ? "text-foreground" : "text-foreground/50"} />
+                        <Icon size={16} className={isActive ? "text-[#FF5A1F]" : "text-[#8B8C95]"} />
                         {item.name}
                       </Link>
                     </motion.div>
                   );
                 })}
-                <div className="border-t border-neutral-100 mt-2 pt-2 px-4 pb-3 space-y-2">
-                  <Button asChild className="w-full rounded-full h-11">
-                    <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                      Get In Touch
-                    </Link>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-full rounded-full h-11"
+                <div className="border-t border-[#1E2028] mt-2 pt-2 px-4 pb-3 space-y-2">
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center w-full h-11 text-sm font-semibold text-white bg-[#FF5A1F] hover:bg-[#FF7040] transition-colors tracking-wide"
                   >
-                    <Link href="/client-portal" onClick={() => setMobileMenuOpen(false)}>
-                      Client Portal
-                    </Link>
-                  </Button>
+                    Get In Touch
+                  </Link>
+                  <Link
+                    href="/client-portal"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center w-full h-11 text-sm font-semibold text-[#F3F4F6] border border-[#FF5A1F]/40 hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 transition-colors tracking-wide"
+                  >
+                    Client Portal
+                  </Link>
                 </div>
               </div>
             </motion.div>

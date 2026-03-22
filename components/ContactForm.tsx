@@ -23,9 +23,9 @@ const planOptions = [
 ];
 
 const inputClasses = cn(
-  "w-full rounded-lg border border-border bg-white px-4 py-3",
-  "text-foreground placeholder-muted-foreground",
-  "focus:border-foreground focus:outline-none focus:ring-2 focus:ring-foreground/20",
+  "w-full border border-[#1E2028] bg-[#0B0C10] px-4 py-3",
+  "text-[#F3F4F6] placeholder-[#8B8C95]",
+  "focus:border-[#FF5A1F] focus:outline-none focus:ring-0",
   "transition-all duration-200"
 );
 
@@ -96,7 +96,7 @@ export default function ContactForm() {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.4, delay: 0.2, type: "spring" }}
-          className="mx-auto w-16 h-16 bg-foreground rounded-full flex items-center justify-center mb-6"
+          className="mx-auto w-16 h-16 bg-[#FF5A1F] flex items-center justify-center mb-6"
           aria-hidden="true"
         >
           <CheckCircle2 className="w-8 h-8 text-white" />
@@ -269,11 +269,11 @@ export default function ContactForm() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="p-4 rounded-lg bg-red-50 border border-red-200"
+          className="p-4 bg-red-500/10 border border-red-500/30"
           role="alert"
           aria-live="assertive"
         >
-          <p className="text-red-700 text-sm">{error}</p>
+          <p className="text-red-400 text-sm">{error}</p>
         </motion.div>
       )}
 

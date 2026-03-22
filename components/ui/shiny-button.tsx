@@ -18,12 +18,11 @@ export function ShinyButton({
     <motion.button
       className={cn(
         "relative inline-flex items-center justify-center px-8 py-4",
-        "text-base font-semibold text-white",
-        "bg-foreground rounded-xl",
+        "text-base font-semibold text-white tracking-wide",
+        "bg-[#FF5A1F]",
         "overflow-hidden",
         "transition-all duration-300",
-        "hover:scale-105 hover:shadow-xl hover:shadow-foreground/25",
-        "active:scale-100",
+        "shadow-[0_0_20px_rgba(255,90,31,0.4)] hover:shadow-[0_0_40px_rgba(255,90,31,0.6)]",
         className
       )}
       whileHover={{ scale: 1.02 }}
@@ -32,7 +31,7 @@ export function ShinyButton({
     >
       {/* Shine effect */}
       <span
-        className="absolute inset-0 overflow-hidden rounded-xl"
+        className="absolute inset-0 overflow-hidden"
         aria-hidden="true"
       >
         <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shine" />

@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { DotPattern } from "@/components/ui/grid-pattern";
 
 export default function ClientPortalPage() {
   const [email, setEmail] = useState("");
@@ -22,9 +21,7 @@ export default function ClientPortalPage() {
 
   return (
     <section className="relative min-h-screen py-24 pt-32 overflow-hidden">
-      {/* Solid white background to cover the global liquid gradient - extends behind header */}
-      <div className="fixed inset-0 bg-white z-[-1]" />
-      <DotPattern className="opacity-50 z-[1]" />
+      <div className="absolute inset-0 grid-overlay" />
 
       <div className="mx-auto max-w-md px-6 lg:px-8 relative z-10">
         <motion.div
@@ -54,7 +51,7 @@ export default function ClientPortalPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-white rounded-2xl border border-border shadow-lg p-8"
+          className="bg-[#16181D] border border-[#1E2028] shadow-lg p-8"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
@@ -67,7 +64,7 @@ export default function ClientPortalPage() {
                 placeholder="you@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex h-12 w-full rounded-lg border border-border bg-background px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+                className="flex h-12 w-full border border-[#1E2028] bg-[#0B0C10] px-4 py-2 text-sm text-[#F3F4F6] placeholder:text-[#8B8C95] focus:outline-none focus:border-[#FF5A1F] transition-colors"
               />
             </div>
 
@@ -81,7 +78,7 @@ export default function ClientPortalPage() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="flex h-12 w-full rounded-lg border border-border bg-background px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-foreground focus:ring-offset-2"
+                className="flex h-12 w-full border border-[#1E2028] bg-[#0B0C10] px-4 py-2 text-sm text-[#F3F4F6] placeholder:text-[#8B8C95] focus:outline-none focus:border-[#FF5A1F] transition-colors"
               />
             </div>
 
@@ -95,10 +92,10 @@ export default function ClientPortalPage() {
 
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-border" />
+              <div className="w-full border-t border-[#1E2028]" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-4 text-muted-foreground">
+              <span className="bg-[#16181D] px-4 text-[#8B8C95]">
                 or continue with
               </span>
             </div>

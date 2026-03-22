@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const fadeUpVariants = {
@@ -13,7 +12,7 @@ export default function Hero() {
       y: 0,
       transition: {
         duration: 1,
-        delay: 0.5 + i * 0.2,
+        delay: 0.4 + i * 0.2,
         ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
       },
     }),
@@ -21,10 +20,23 @@ export default function Hero() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Content Section - liquid background is now global */}
       <section className="relative min-h-screen w-full flex items-center justify-center" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-6 md:px-8 -mt-16 md:-mt-24">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
+
+            {/* Label chip */}
+            <motion.div
+              custom={-1}
+              variants={fadeUpVariants}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2 mb-8"
+            >
+              <span className="text-[11px] font-semibold tracking-[0.15em] uppercase text-[#8B8C95] border border-[#1E2028] px-4 py-1.5">
+                Done-For-You AI Automation
+              </span>
+            </motion.div>
+
             {/* Headline */}
             <motion.div
               custom={0}
@@ -32,13 +44,13 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight">
-                <span className="text-foreground drop-shadow-sm">
-                  Automate Your Operations.
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-bold mb-6 leading-[1.05] tracking-tight uppercase">
+                <span className="text-[#F3F4F6]">
+                  Automate Your
                 </span>
                 <br />
-                <span className="text-foreground/70">
-                  Free Your Time.
+                <span className="text-[#FF5A1F]">
+                  Operations.
                 </span>
               </h1>
             </motion.div>
@@ -50,7 +62,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              <p className="text-base sm:text-lg md:text-xl text-foreground/80 mb-10 leading-relaxed max-w-2xl mx-auto px-4">
+              <p className="text-base sm:text-lg md:text-xl text-[#8B8C95] mb-10 leading-relaxed max-w-2xl mx-auto px-4 font-medium">
                 Done-for-you AI automation: built, deployed, and managed by us.
                 Stop drowning in repetitive tasks and focus on growing your business.
               </p>
@@ -64,23 +76,42 @@ export default function Hero() {
               animate="visible"
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
-              <Button asChild size="lg" className="group bg-foreground text-white hover:bg-foreground/90 shadow-xl">
-                <Link href="/solutions">
-                  See Our Solutions
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="bg-white/80 backdrop-blur-md border-neutral-300 text-foreground hover:bg-white shadow-lg">
-                <Link href="/contact">
-                  Get In Touch
-                </Link>
-              </Button>
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FF5A1F] text-white font-semibold tracking-wide hover:bg-[#FF7040] transition-colors shadow-[0_0_30px_rgba(255,90,31,0.35)] hover:shadow-[0_0_40px_rgba(255,90,31,0.55)] group"
+              >
+                View Pricing
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center px-8 py-3.5 border border-[#FF5A1F]/40 text-[#F3F4F6] font-semibold tracking-wide hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 transition-colors"
+              >
+                Get In Touch
+              </Link>
+            </motion.div>
+
+            {/* Stats row */}
+            <motion.div
+              custom={3}
+              variants={fadeUpVariants}
+              initial="hidden"
+              animate="visible"
+              className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16"
+            >
+              {[
+                { value: "10+", label: "Hours saved weekly" },
+                { value: "6wk", label: "Average deployment" },
+                { value: "UK", label: "Based & supported" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <div className="text-2xl font-bold text-[#00E676]">{stat.value}</div>
+                  <div className="text-[11px] text-[#8B8C95] tracking-[0.1em] uppercase mt-1">{stat.label}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
-
-        {/* Bottom gradient fade to white */}
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       </section>
     </div>
   );
