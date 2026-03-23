@@ -77,17 +77,17 @@ export default function Hero() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link
-                href="/pricing"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FF5A1F] text-white font-semibold tracking-wide hover:bg-[#FF7040] transition-colors shadow-[0_0_30px_rgba(255,90,31,0.35)] hover:shadow-[0_0_40px_rgba(255,90,31,0.55)] group"
               >
-                View Pricing
+                Get In Touch
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
-                href="/contact"
+                href="/pricing"
                 className="inline-flex items-center px-8 py-3.5 border border-[#FF5A1F]/40 text-[#F3F4F6] font-semibold tracking-wide hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 transition-colors"
               >
-                Get In Touch
+                View Pricing
               </Link>
             </motion.div>
 
@@ -100,9 +100,9 @@ export default function Hero() {
               className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16"
             >
               {[
-                { value: "10+", label: "Hours saved weekly" },
+                { value: "34", label: "Hours saved weekly" },
+                { value: "100%", label: "Client retention" },
                 { value: "6wk", label: "Average deployment" },
-                { value: "UK", label: "Based & supported" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="text-2xl font-bold text-[#00E676]">{stat.value}</div>

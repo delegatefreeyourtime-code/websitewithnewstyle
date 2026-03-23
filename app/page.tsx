@@ -24,51 +24,36 @@ import {
   Receipt,
 } from "lucide-react";
 
-const solutions = [
+const scenarios = [
   {
-    name: "AI Proposal Generator",
-    description:
-      "Transform client briefs into professionally written proposals in minutes. AI-powered writing that matches your brand voice.",
+    industry: "For a law firm",
+    example: "We built an AI system that drafts client-ready contract summaries from uploaded documents — cutting review prep time from 4 hours to 20 minutes.",
     Icon: <FileText className="w-6 h-6" />,
-    href: "/contact?solution=proposals",
-    cta: "Learn more",
     gradient: "bg-gradient-to-br from-[#FF5A1F]/10 via-transparent to-transparent",
     featured: true,
   },
   {
-    name: "Knowledge Chatbot",
-    description:
-      "Give your team instant access to company knowledge via an intelligent RAG chatbot. Onboard new hires faster.",
-    Icon: <MessageSquare className="w-6 h-6" />,
-    href: "/contact?solution=chatbot",
-    cta: "Learn more",
-    gradient: "bg-gradient-to-br from-[#00E676]/8 via-transparent to-transparent",
-  },
-  {
-    name: "Lead Scoring System",
-    description:
-      "Automatically discover and qualify prospects with web scraping and AI analysis.",
+    industry: "For a recruitment agency",
+    example: "We built a CV screening and candidate scoring tool that ranks applicants against job criteria automatically, saving 10+ hours of manual shortlisting per week.",
     Icon: <Target className="w-6 h-6" />,
-    href: "/contact?solution=leads",
-    cta: "Learn more",
     gradient: "bg-gradient-to-br from-[#FF5A1F]/8 via-transparent to-transparent",
   },
   {
-    name: "Status Reports",
-    description:
-      "Generate comprehensive project updates automatically from your existing tools.",
+    industry: "For an e-commerce brand",
+    example: "We built an AI that monitors competitor pricing, flags opportunities, and drafts promotional copy — all without lifting a finger.",
     Icon: <BarChart3 className="w-6 h-6" />,
-    href: "/contact?solution=reports",
-    cta: "Learn more",
     gradient: "bg-gradient-to-br from-[#00E676]/8 via-transparent to-transparent",
   },
   {
-    name: "Expense Categorisation",
-    description:
-      "AI-powered expense sorting that streamlines your bookkeeping and improves accuracy.",
+    industry: "For a consultancy",
+    example: "We built a knowledge chatbot trained on internal documents so new hires get instant, accurate answers — reducing onboarding time significantly.",
+    Icon: <MessageSquare className="w-6 h-6" />,
+    gradient: "bg-gradient-to-br from-[#00E676]/8 via-transparent to-transparent",
+  },
+  {
+    industry: "For a property management company",
+    example: "We built automated reporting that pulls data from multiple systems and produces weekly performance dashboards — no spreadsheets, no manual effort.",
     Icon: <Receipt className="w-6 h-6" />,
-    href: "/contact?solution=expenses",
-    cta: "Learn more",
     gradient: "bg-gradient-to-br from-[#FF5A1F]/8 via-transparent to-transparent",
   },
 ];
@@ -76,26 +61,18 @@ const solutions = [
 const testimonials = [
   {
     quote:
-      "Delegate transformed how we handle proposals. What used to take hours now takes minutes, and the quality is consistently excellent.",
-    author: "Sarah Mitchell",
-    role: "Managing Director",
-    company: "Creative Agency London",
+      "Founders, small business owners, people looking to implement AI in their business in a strategic way to reduce costs and increase margins, or even to get going off the ground, those people should be reaching out to Delegate right now",
+    author: "Boluwatife Olawaye",
+    role: "",
+    company: "",
     rating: 5,
   },
   {
     quote:
-      "The knowledge chatbot has been a game-changer for our team. New hires get up to speed 3x faster now.",
-    author: "James Chen",
-    role: "Operations Manager",
-    company: "TechStart UK",
-    rating: 5,
-  },
-  {
-    quote:
-      "Finally, expense tracking that doesn't make me want to pull my hair out. The AI categorization is surprisingly accurate.",
-    author: "Emma Williams",
-    role: "Finance Director",
-    company: "Growth Partners",
+      "Now we are ready to focus on getting more sales. We have a system in place, and that benefits our ecosystem.",
+    author: "Iyioluwa Adesan",
+    role: "",
+    company: "",
     rating: 5,
   },
 ];
@@ -138,25 +115,25 @@ export default function Home() {
             >
               <Badge variant="secondary" className="mb-4">Solutions</Badge>
               <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl md:text-5xl uppercase">
-                Done-for-you AI automation
+                Bespoke AI, built for your business
               </h2>
               <p className="mt-4 text-lg text-[#8B8C95] max-w-2xl mx-auto">
-                We build, deploy, and manage AI tools that save you hours every week
+                Every business is different. We don&apos;t offer off-the-shelf tools — we design and build custom AI solutions tailored to your specific workflows and challenges.
               </p>
             </motion.div>
 
             <BentoGrid className="max-w-5xl mx-auto">
-              {solutions.map((solution, index) => (
+              {scenarios.map((scenario, index) => (
                 <BentoCard
-                  key={solution.name}
-                  name={solution.name}
-                  description={solution.description}
-                  Icon={solution.Icon}
-                  href={solution.href}
-                  cta={solution.cta}
+                  key={scenario.industry}
+                  name={scenario.industry}
+                  description={scenario.example}
+                  Icon={scenario.Icon}
+                  href="/contact"
+                  cta="Build something like this"
                   index={index}
-                  gradient={solution.gradient}
-                  featured={solution.featured}
+                  gradient={scenario.gradient}
+                  featured={scenario.featured}
                 />
               ))}
             </BentoGrid>
@@ -169,8 +146,8 @@ export default function Home() {
               className="mt-12 text-center"
             >
               <Button asChild size="lg">
-                <Link href="/pricing">
-                  See pricing
+                <Link href="/contact">
+                  Tell us what you need
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -198,9 +175,10 @@ export default function Home() {
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl mx-auto">
               {[
-                { value: 10, suffix: "+", label: "Hours saved weekly" },
+                { value: 34, suffix: "", label: "Hours saved weekly per client" },
+                { value: 100, suffix: "%", label: "Client retention" },
                 { value: 6, suffix: " weeks", label: "Avg. deployment" },
               ].map((stat, index) => (
                 <motion.div
@@ -211,7 +189,7 @@ export default function Home() {
                   viewport={{ once: true }}
                   className="text-center"
                 >
-                  <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#00E676] mb-2">
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#00E676] mb-2 whitespace-nowrap">
                     <AnimatedCounter
                       value={stat.value}
                       suffix={stat.suffix}
@@ -325,7 +303,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <TestimonialCard key={index} {...testimonial} index={index} />
               ))}

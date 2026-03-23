@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[#1E2028] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#8B8C95]">
-            &copy; {new Date().getFullYear()} Delegate AI Agency. All rights reserved.
+            &copy; est 2025 Delegate AI Services Ltd. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-[#8B8C95] hover:text-[#F3F4F6] transition-colors">

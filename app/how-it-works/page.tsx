@@ -102,13 +102,6 @@ const timelineData = [
   },
 ];
 
-const timeline = [
-  { day: "Day 1", label: "Discovery Call" },
-  { day: "Day 3", label: "Proposal Sent" },
-  { day: "Week 2", label: "Design Complete" },
-  { day: "Week 6", label: "Go Live", highlight: true },
-];
-
 export default function HowItWorksPage() {
   return (
     <>
@@ -182,68 +175,6 @@ export default function HowItWorksPage() {
       {/* Steps Timeline */}
       <section className="bg-[#0B0C10]">
         <Timeline data={timelineData} />
-      </section>
-
-      {/* Timeline Summary */}
-      <section className="py-24 bg-[#16181D] relative">
-        <div className="absolute inset-0 grid-overlay" />
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl uppercase">
-              Typical Timeline
-            </h2>
-            <p className="mt-4 text-lg text-[#8B8C95]">
-              Most solutions are live within 6 weeks from kickoff
-            </p>
-          </motion.div>
-
-          <div className="mx-auto max-w-4xl">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-              {timeline.map((item, index) => (
-                <motion.div
-                  key={item.day}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center flex-1"
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className={`w-20 h-20 mx-auto mb-4 flex items-center justify-center ${
-                      item.highlight
-                        ? "bg-[#FF5A1F] text-white shadow-[0_0_20px_rgba(255,90,31,0.4)]"
-                        : "bg-[#0B0C10] border border-[#1E2028] text-[#8B8C95]"
-                    }`}
-                  >
-                    <span className="text-sm font-bold">{item.day}</span>
-                  </motion.div>
-                  <p className={`text-sm ${item.highlight ? "font-semibold text-[#F3F4F6]" : "text-[#8B8C95]"}`}>
-                    {item.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="hidden md:block relative mt-8">
-              <div className="absolute top-0 left-[10%] right-[10%] h-px bg-[#1E2028]">
-                <motion.div
-                  initial={{ width: "0%" }}
-                  whileInView={{ width: "100%" }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
-                  className="h-full bg-[#FF5A1F]"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* CTA */}

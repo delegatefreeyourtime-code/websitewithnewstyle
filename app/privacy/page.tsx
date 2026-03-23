@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-xl font-bold text-[#F3F4F6] uppercase mb-3">1. Who We Are</h2>
             <p>
-              Delegate AI Agency (&ldquo;Delegate&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) provides AI automation services to UK SMEs.
+              Delegate AI Services Ltd (&ldquo;Delegate&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) provides AI automation services to UK SMEs.
               Our contact email is <a href="mailto:freeyourtime@delegate-me.com" className="text-[#FF5A1F] hover:text-[#FF7040]">freeyourtime@delegate-me.com</a>.
             </p>
           </div>

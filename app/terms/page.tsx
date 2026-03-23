@@ -22,7 +22,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-bold text-[#F3F4F6] uppercase mb-3">2. Services</h2>
             <p>
-              Delegate AI Agency provides AI automation consultancy and implementation services to businesses in the United Kingdom. The specific scope of services, pricing, and timelines are agreed in writing before any work commences.
+              Delegate AI Services Ltd provides AI automation consultancy and implementation services to businesses in the United Kingdom. The specific scope of services, pricing, and timelines are agreed in writing before any work commences.
             </p>
           </div>
 
@@ -43,7 +43,7 @@ export default function TermsPage() {
           <div>
             <h2 className="text-xl font-bold text-[#F3F4F6] uppercase mb-3">5. Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by UK law, Delegate AI Agency shall not be liable for indirect, incidental, or consequential damages arising from the use of our services. Our liability is limited to the fees paid for the specific service in question.
+              To the fullest extent permitted by UK law, Delegate AI Services Ltd shall not be liable for indirect, incidental, or consequential damages arising from the use of our services. Our liability is limited to the fees paid for the specific service in question.
             </p>
           </div>
 

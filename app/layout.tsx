@@ -13,22 +13,22 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Delegate AI Agency | AI Automation for UK SMEs",
+  title: "Delegate AI Services Ltd | AI Automation for UK SMEs",
   description: "AI automation for UK SMEs. Built, deployed, and managed by us. Automate your operations and reclaim your time with our done-for-you AI solutions.",
   keywords: ["AI automation", "UK SMEs", "business automation", "AI agency", "workflow automation"],
-  authors: [{ name: "Delegate AI Agency" }],
+  authors: [{ name: "Delegate AI Services Ltd" }],
   metadataBase: new URL("https://delegateai.agency"),
   openGraph: {
-    title: "Delegate AI Agency | AI Automation for UK SMEs",
+    title: "Delegate AI Services Ltd | AI Automation for UK SMEs",
     description: "AI automation for UK SMEs. Built, deployed, and managed by us.",
     type: "website",
     locale: "en_GB",
     url: "https://delegateai.agency",
-    siteName: "Delegate AI Agency",
+    siteName: "Delegate AI Services Ltd",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Delegate AI Agency | AI Automation for UK SMEs",
+    title: "Delegate AI Services Ltd | AI Automation for UK SMEs",
     description: "AI automation for UK SMEs. Built, deployed, and managed by us.",
   },
   robots: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Delegate AI Agency",
+  name: "Delegate AI Services Ltd",
   url: "https://delegateai.agency",
   logo: "https://delegateai.agency/logo.png",
   description: "AI automation for UK SMEs. Built, deployed, and managed by us. Automate your operations and reclaim your time with our done-for-you AI solutions.",
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <head>
-        <link rel="icon" href="/logo_small.PNG" type="image/png" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

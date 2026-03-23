@@ -65,10 +65,13 @@ export function TestimonialCard({
         </div>
         <div>
           <p className="font-semibold text-[#F3F4F6] text-sm">{author}</p>
-          <p className="text-xs text-[#8B8C95]">
-            {role}
-            {company && `, ${company}`}
-          </p>
+          {(role || company) && (
+            <p className="text-xs text-[#8B8C95]">
+              {role}
+              {role && company && `, `}
+              {company}
+            </p>
+          )}
         </div>
       </div>
     </motion.div>

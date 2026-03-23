@@ -15,6 +15,23 @@ interface InputFieldProps {
 }
 
 function InputField({ label, value, onChange, prefix, suffix, min = 1, max = 999 }: InputFieldProps) {
+  const [raw, setRaw] = useState(String(value));
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRaw(e.target.value);
+    const num = Number(e.target.value);
+    if (e.target.value !== "" && !isNaN(num)) {
+      onChange(Math.max(min, Math.min(max, num)));
+    }
+  };
+
+  const handleBlur = () => {
+    const num = Number(raw);
+    const clamped = isNaN(num) || raw === "" ? min : Math.max(min, Math.min(max, num));
+    onChange(clamped);
+    setRaw(String(clamped));
+  };
+
   return (
     <div className="group">
       <label className="block text-[11px] font-semibold tracking-[0.12em] uppercase text-[#8B8C95] mb-2">
@@ -24,10 +41,11 @@ function InputField({ label, value, onChange, prefix, suffix, min = 1, max = 999
         {prefix && <span className="text-[#8B8C95] text-lg font-semibold mr-1">{prefix}</span>}
         <input
           type="number"
-          value={value}
+          value={raw}
           min={min}
           max={max}
-          onChange={(e) => onChange(Math.max(min, Math.min(max, Number(e.target.value) || min)))}
+          onChange={handleChange}
+          onBlur={handleBlur}
           className="flex-1 bg-transparent text-[#F3F4F6] text-lg font-semibold focus:outline-none appearance-none w-full"
           style={{ WebkitAppearance: "none", MozAppearance: "textfield" }}
         />

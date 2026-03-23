@@ -6,15 +6,6 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const automationOptions = [
-  "AI Proposal Generator",
-  "Company Knowledge Chatbot",
-  "Web Scraping & Lead Scoring",
-  "Automated Status Reports",
-  "Expense Categorization",
-  "Other / Not Sure",
-];
-
 const planOptions = [
   "Starter",
   "Growth",
@@ -35,7 +26,6 @@ export default function ContactForm() {
     email: "",
     company: "",
     plan: "",
-    automation: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -220,33 +210,6 @@ export default function ContactForm() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-      >
-        <label
-          htmlFor="automation"
-          className="block text-sm font-medium text-foreground mb-2"
-        >
-          What are you looking to automate?
-        </label>
-        <select
-          id="automation"
-          name="automation"
-          value={formData.automation}
-          onChange={handleChange}
-          className={inputClasses}
-        >
-          <option value="">Select an option</option>
-          {automationOptions.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.35 }}
       >
         <label
           htmlFor="message"
