@@ -36,7 +36,7 @@ export default function ClientPortalPage() {
               alt="Delegate"
               width={150}
               height={40}
-              className="h-10 w-auto mx-auto"
+              className="h-10 w-auto mx-auto mix-blend-screen"
             />
           </Link>
           <h1 className="text-3xl font-bold tracking-tight text-foreground">

@@ -26,7 +26,7 @@ export default function Footer() {
               alt="Delegate"
               width={120}
               height={32}
-              className="h-8 w-auto"
+              className="h-8 w-auto mix-blend-screen"
             />
             <p className="text-sm text-[#8B8C95] max-w-xs leading-relaxed">
               AI automation for UK SMEs. Built, deployed, and managed by us so you can focus on what matters.
