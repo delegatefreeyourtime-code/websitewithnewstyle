@@ -9,21 +9,18 @@ const nextConfig = {
     ],
     formats: ["image/avif", "image/webp"],
   },
-  async rewrites() {
-    const portalUrl = process.env.PORTAL_INTERNAL_URL || 'http://localhost:3001';
-    return [
-      {
-        source: '/apprentis/:path*',
-        destination: `${portalUrl}/apprentis/:path*`,
-      },
-    ];
-  },
   async redirects() {
+    const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://apprentis-delegateos.vercel.app';
     return [
       {
         source: "/solutions",
         destination: "/",
         permanent: true,
+      },
+      {
+        source: "/apprentis/:path*",
+        destination: `${portalUrl}/:path*`,
+        permanent: false,
       },
     ];
   },
