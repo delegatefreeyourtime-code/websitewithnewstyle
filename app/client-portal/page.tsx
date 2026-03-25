@@ -5,18 +5,37 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase";
 
 export default function ClientPortalPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Non-functional - just prevents form submission
+    setError("");
+    setLoading(true);
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      setError(error.message);
+      setLoading(false);
+      return;
+    }
+    window.location.href = "/apprentis/dashboard";
   };
 
-  const handleGoogleLogin = () => {
-    // Non-functional
+  const handleGoogleLogin = async () => {
+    setError("");
+    const supabase = createClient();
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/apprentis/auth/callback`,
+      },
+    });
   };
 
   return (
@@ -64,6 +83,7 @@ export default function ClientPortalPage() {
                 placeholder="you@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
                 className="flex h-12 w-full border border-[#1E2028] bg-[#0B0C10] px-4 py-2 text-sm text-[#F3F4F6] placeholder:text-[#8B8C95] focus:outline-none focus:border-[#FF5A1F] transition-colors"
               />
             </div>
@@ -78,15 +98,21 @@ export default function ClientPortalPage() {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
                 className="flex h-12 w-full border border-[#1E2028] bg-[#0B0C10] px-4 py-2 text-sm text-[#F3F4F6] placeholder:text-[#8B8C95] focus:outline-none focus:border-[#FF5A1F] transition-colors"
               />
             </div>
 
+            {error && (
+              <p className="text-sm text-red-400">{error}</p>
+            )}
+
             <Button
               type="submit"
               className="w-full h-12 rounded-full"
+              disabled={loading}
             >
-              Log in
+              {loading ? "Signing in..." : "Log in"}
             </Button>
           </form>
 
