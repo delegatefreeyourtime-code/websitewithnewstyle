@@ -10,17 +10,19 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    const portalUrl = process.env.NEXT_PUBLIC_PORTAL_URL || 'https://apprentis-delegateos.vercel.app';
     return [
       {
         source: "/solutions",
         destination: "/",
         permanent: true,
       },
+    ];
+  },
+  async rewrites() {
+    return [
       {
-        source: "/apprentis/:path*",
-        destination: `${portalUrl}/:path*`,
-        permanent: false,
+        source: "/delegateOS/:path*",
+        destination: "https://apprentisdelegateos.vercel.app/delegateOS/:path*",
       },
     ];
   },
