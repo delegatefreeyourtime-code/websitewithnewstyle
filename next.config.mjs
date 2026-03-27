@@ -21,6 +21,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: "/delegateOS",
+        destination: "https://apprentisdelegateos.vercel.app/delegateOS",
+      },
+      {
         source: "/delegateOS/:path*",
         destination: "https://apprentisdelegateos.vercel.app/delegateOS/:path*",
       },
