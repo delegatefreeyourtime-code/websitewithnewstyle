@@ -92,11 +92,22 @@ export default function ContactForm() {
           <CheckCircle2 className="w-8 h-8 text-white" />
         </motion.div>
         <h3 className="text-2xl font-semibold text-foreground mb-2">
-          Thank you!
+          Message received.
         </h3>
-        <p className="text-muted-foreground">
-          We&apos;ve received your message and will be in touch within 24 hours.
+        <p className="text-muted-foreground mb-6">
+          We&apos;ll be in touch within 24 hours. Check your inbox for a confirmation.
         </p>
+        <p className="text-sm text-muted-foreground mb-4">
+          Want to skip the wait?
+        </p>
+        <a
+          href={process.env.NEXT_PUBLIC_BOOKING_LINK || "https://calendly.com/delegate-me"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[#FF5A1F] text-white px-6 py-3 text-sm font-bold uppercase tracking-wide hover:bg-[#e04e18] transition-colors"
+        >
+          Book a call directly →
+        </a>
       </motion.div>
     );
   }
