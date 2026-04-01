@@ -17,19 +17,28 @@ export const metadata: Metadata = {
   description: "AI automation for UK SMEs. Built, deployed, and managed by us. Automate your operations and reclaim your time with our done-for-you AI solutions.",
   keywords: ["AI automation", "UK SMEs", "business automation", "AI agency", "workflow automation"],
   authors: [{ name: "Delegate AI Services Ltd" }],
-  metadataBase: new URL("https://delegateai.agency"),
+  metadataBase: new URL("https://delegate-me.com"),
   openGraph: {
     title: "Delegate AI Services Ltd | AI Automation for UK SMEs",
     description: "AI automation for UK SMEs. Built, deployed, and managed by us.",
     type: "website",
     locale: "en_GB",
-    url: "https://delegateai.agency",
+    url: "https://delegate-me.com",
     siteName: "Delegate AI Services Ltd",
+    images: [
+      {
+        url: "/og-image",
+        width: 1200,
+        height: 630,
+        alt: "Delegate AI Services — AI Automation for UK SMEs",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Delegate AI Services Ltd | AI Automation for UK SMEs",
     description: "AI automation for UK SMEs. Built, deployed, and managed by us.",
+    images: ["/og-image"],
   },
   robots: {
     index: true,
@@ -41,8 +50,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Delegate AI Services Ltd",
-  url: "https://delegateai.agency",
-  logo: "https://delegateai.agency/logo.png",
+  url: "https://delegate-me.com",
+  logo: "https://delegate-me.com/logo.png",
   description: "AI automation for UK SMEs. Built, deployed, and managed by us. Automate your operations and reclaim your time with our done-for-you AI solutions.",
   areaServed: {
     "@type": "Country",
@@ -63,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={spaceGrotesk.variable}>
+    <html lang="en-GB" className={spaceGrotesk.variable}>
       <head>
         <link rel="icon" href="/favicon.png" type="image/png" />
         <script

@@ -63,7 +63,7 @@ const testimonials = [
     quote:
       "Founders, small business owners, people looking to implement AI in their business in a strategic way to reduce costs and increase margins, or even to get going off the ground, those people should be reaching out to Delegate right now",
     author: "Boluwatife Olawaye",
-    role: "",
+    role: "Founder",
     company: "",
     rating: 5,
   },
@@ -71,7 +71,7 @@ const testimonials = [
     quote:
       "Now we are ready to focus on getting more sales. We have a system in place, and that benefits our ecosystem.",
     author: "Iyioluwa Adesan",
-    role: "",
+    role: "Founder",
     company: "",
     rating: 5,
   },
@@ -110,12 +110,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="text-center mb-16"
             >
               <Badge variant="secondary" className="mb-4">Solutions</Badge>
               <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl md:text-5xl uppercase">
-                Bespoke AI, built for your business
+                AI Automation Solutions for UK Businesses
               </h2>
               <p className="mt-4 text-lg text-[#8B8C95] max-w-2xl mx-auto">
                 Every business is different. We don&apos;t offer off-the-shelf tools — we design and build custom AI solutions tailored to your specific workflows and challenges.
@@ -142,7 +142,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="mt-12 text-center"
             >
               <Button asChild size="lg">
@@ -167,11 +167,11 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="text-center mb-16"
             >
               <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl md:text-5xl uppercase">
-                Results that speak for themselves
+                Proven AI Implementation Results
               </h2>
             </motion.div>
 
@@ -186,7 +186,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   className="text-center"
                 >
                   <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#00E676] mb-2 whitespace-nowrap">
@@ -211,7 +211,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="text-center mb-16"
             >
               <Badge variant="secondary" className="mb-4">Process</Badge>
@@ -249,7 +249,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.15 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                 >
                   <TiltCard className="h-full">
                     <div className="bg-[#16181D] border border-[#1E2028] p-8 h-full hover:border-[#FF5A1F]/30 transition-colors duration-300">
@@ -270,7 +270,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="mt-12 text-center"
             >
               <Button asChild variant="outline" size="lg" className="group">
@@ -291,12 +291,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="text-center mb-16"
             >
               <Badge variant="secondary" className="mb-4">Testimonials</Badge>
               <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl uppercase">
-                Loved by UK businesses
+                Trusted by UK Small Businesses
               </h2>
               <p className="mt-4 text-lg text-[#8B8C95] max-w-2xl mx-auto">
                 Don&apos;t just take our word for it
@@ -319,12 +319,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="mx-auto max-w-3xl text-center mb-16"
             >
               <Badge variant="secondary" className="mb-4">Why Delegate</Badge>
               <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl uppercase">
-                Built for UK businesses
+                Why Choose a UK AI Automation Agency
               </h2>
               <p className="mt-6 text-lg text-[#8B8C95]">
                 We understand the unique challenges facing UK SMEs. Our solutions
@@ -339,7 +339,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   className="text-center p-8 bg-[#16181D] border border-[#1E2028] hover:border-[#FF5A1F]/30 transition-colors"
                 >
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-[#FF5A1F] text-white mb-4 shadow-[0_0_15px_rgba(255,90,31,0.3)]">
@@ -365,7 +365,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   className="flex items-center gap-3 p-3 hover:bg-[#16181D] transition-colors"
                 >
                   <CheckCircle2 className="h-5 w-5 text-[#00E676] flex-shrink-0" />
@@ -392,14 +392,14 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               className="mx-auto max-w-3xl text-center"
             >
               <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 className="inline-flex items-center gap-2 px-4 py-2 border border-[#FF5A1F]/20 mb-8"
               >
                 <Sparkles className="h-4 w-4 text-[#FF5A1F]" />

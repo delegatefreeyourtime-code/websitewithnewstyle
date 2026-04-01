@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://delegateai.agency/sitemap.xml",
+    sitemap: "https://delegate-me.com/sitemap.xml",
   };
 }

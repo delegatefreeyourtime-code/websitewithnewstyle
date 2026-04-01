@@ -144,7 +144,7 @@ export default function HowItWorksPage() {
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 uppercase"
                 >
                   See Your Automation Come to Life
@@ -152,7 +152,7 @@ export default function HowItWorksPage() {
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ delay: 0.1 }}
                   className="mt-4 text-neutral-400 max-w-lg text-base md:text-lg"
                 >
@@ -189,7 +189,7 @@ export default function HowItWorksPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6 }}
             className="mx-auto max-w-2xl text-center"
           >

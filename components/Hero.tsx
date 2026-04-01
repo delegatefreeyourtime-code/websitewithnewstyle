@@ -80,7 +80,7 @@ export default function Hero() {
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FF5A1F] text-white font-semibold tracking-wide hover:bg-[#FF7040] transition-colors shadow-[0_0_30px_rgba(255,90,31,0.35)] hover:shadow-[0_0_40px_rgba(255,90,31,0.55)] group"
               >
-                Get In Touch
+                Book Your Free Discovery Call
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link

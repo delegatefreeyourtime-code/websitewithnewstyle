@@ -28,7 +28,7 @@ export function TestimonialCard({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0 }}
       className={cn(
         "relative p-6 bg-[#16181D] border border-[#1E2028]",
         "hover:border-[#FF5A1F]/30 hover:shadow-[0_0_20px_rgba(255,90,31,0.08)] transition-all duration-300",

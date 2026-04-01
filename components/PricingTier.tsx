@@ -30,7 +30,7 @@ export default function PricingTier({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0 }}
       className={cn(
         "relative rounded-2xl p-8 h-full flex flex-col",
         highlighted
@@ -107,7 +107,7 @@ export default function PricingTier({
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: 0.1 + featureIndex * 0.05 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             className="flex items-start gap-3"
           >
             <Check

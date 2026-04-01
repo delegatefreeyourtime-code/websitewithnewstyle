@@ -121,7 +121,7 @@ export default function ROICalculator() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           className="text-center mb-14"
         >
           <div className="inline-flex items-center gap-2 border border-[#00E676]/30 bg-[#00E676]/5 px-4 py-1.5 mb-6">
@@ -131,7 +131,7 @@ export default function ROICalculator() {
             </span>
           </div>
           <h2 className="text-3xl font-bold text-[#F3F4F6] sm:text-4xl uppercase tracking-tight">
-            Calculate Your Savings
+            Calculate Your AI Automation Savings
           </h2>
           <p className="mt-4 text-[#8B8C95] max-w-xl mx-auto">
             See how much time and money you could reclaim by automating your manual tasks.
@@ -142,7 +142,7 @@ export default function ROICalculator() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-[#1E2028]"
         >
           {/* Inputs panel */}

@@ -87,7 +87,7 @@ export default function ContactPage() {
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
                 className="bg-[#16181D] border border-[#1E2028] p-8"
               >
@@ -95,14 +95,28 @@ export default function ContactPage() {
                 <ContactForm />
               </motion.div>
 
-              {/* Contact Info */}
+              {/* Contact Info + Calendly */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex flex-col justify-center"
+                className="flex flex-col gap-6"
               >
+                {/* Calendly inline embed */}
+                <div className="bg-[#16181D] border border-[#1E2028] p-4">
+                  <h3 className="text-base font-semibold text-[#F3F4F6] mb-1">Book a discovery call</h3>
+                  <p className="text-[#8B8C95] text-sm mb-4">Pick a time that works for you — 30 minutes, no obligation.</p>
+                  <iframe
+                    src="https://calendly.com/delegate-freeyourtime?embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1&background_color=16181D&text_color=F3F4F6&primary_color=FF5A1F"
+                    width="100%"
+                    height="600"
+                    frameBorder="0"
+                    title="Book a discovery call with Delegate"
+                    className="min-w-0"
+                  />
+                </div>
+
                 <div className="space-y-4">
                   {/* Email */}
                   <div className="bg-[#16181D] border border-[#1E2028] p-6 hover:border-[#FF5A1F]/30 transition-colors">
@@ -169,7 +183,7 @@ export default function ContactPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
                 className="text-center mb-12"
               >
@@ -182,7 +196,7 @@ export default function ContactPage() {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0 }}
                 className="grid grid-cols-1 md:grid-cols-3 gap-8"
               >
                 {steps.map((step) => (
@@ -209,7 +223,7 @@ export default function ContactPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.6 }}
                 >
                   <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6] sm:text-4xl mb-4 uppercase">

@@ -98,14 +98,14 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.8 }}
             >
               <Badge variant="secondary" className="mb-6">Our Mission</Badge>
 
               <h2 className="text-4xl md:text-5xl font-bold text-[#F3F4F6] mb-8 leading-tight uppercase">
-                Making AI Work
-                <span className="block text-[#FF5A1F]">For Everyone</span>
+                AI Consultants Making Automation
+                <span className="block text-[#FF5A1F]">Work for UK SMEs</span>
               </h2>
 
               <div className="space-y-6 text-[#8B8C95] leading-relaxed">
@@ -128,7 +128,7 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.8 }}
               className="relative"
             >
@@ -140,7 +140,7 @@ export default function AboutPage() {
                       key={stat.label}
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: true, amount: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
                       className="bg-[#0B0C10] border border-[#1E2028] p-6 hover:border-[#FF5A1F]/30 transition-colors"
                     >
@@ -180,7 +180,7 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-20"
           >
@@ -200,7 +200,7 @@ export default function AboutPage() {
                   key={value.title}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <div className="h-full bg-[#16181D] border border-[#1E2028] p-8 hover:border-[#FF5A1F]/30 transition-all duration-300">
@@ -233,7 +233,7 @@ export default function AboutPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#F3F4F6] mb-6 uppercase">
