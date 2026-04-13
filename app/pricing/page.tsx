@@ -25,44 +25,44 @@ interface Plan {
 const pricingPlans: Plan[] = [
   {
     planName: "Starter",
-    description: "Perfect for trying AI automation with a single solution",
-    monthlyPrice: "£400",
-    monthlySubtext: "– 600 / mo",
-    yearlyPrice: "£4,000",
-    yearlySubtext: "– 6,000 / yr",
+    description: "One AI solution, fully built and maintained for you",
+    monthlyPrice: "£600",
+    monthlySubtext: "/ mo",
+    yearlyPrice: "£5,760",
+    yearlySubtext: "/ yr",
     features: [
       "1 AI automation solution",
       "Full setup & integration",
-      "Monthly maintenance",
+      "Monthly maintenance & updates",
       "Email support",
       "Performance monitoring",
     ],
-    buttonText: "Choose Starter",
+    buttonText: "Get Started",
   },
   {
     planName: "Growth",
-    description: "For businesses ready to automate multiple workflows",
-    monthlyPrice: "£800",
-    monthlySubtext: "– 1,200 / mo",
-    yearlyPrice: "£8,000",
-    yearlySubtext: "– 12,000 / yr",
+    description: "Multiple workflows automated, priority support included",
+    monthlyPrice: "£1,000",
+    monthlySubtext: "/ mo",
+    yearlyPrice: "£9,600",
+    yearlySubtext: "/ yr",
     features: [
-      "2-3 AI automation solutions",
+      "2–3 AI automation solutions",
       "Priority maintenance",
       "Email & video call support",
       "Weekly usage reports",
       "Quarterly optimisation",
     ],
-    buttonText: "Choose Growth",
+    buttonText: "Get Started",
     isPopular: true,
   },
   {
     planName: "Scale",
-    description: "Enterprise-grade automation across your business",
-    monthlyPrice: "£1,500",
-    monthlySubtext: "– 2,500 / mo",
-    yearlyPrice: "£15,000",
-    yearlySubtext: "– 25,000 / yr",
+    description: "Full AI transformation across your entire business",
+    monthlyPrice: "£2,500",
+    monthlySubtext: "/ mo",
+    yearlyPrice: "£24,000",
+    yearlySubtext: "/ yr",
     features: [
       "4+ AI automation solutions",
       "24-hour maintenance SLA",
@@ -70,7 +70,7 @@ const pricingPlans: Plan[] = [
       "Custom reporting dashboards",
       "Monthly optimisation calls",
     ],
-    buttonText: "Choose Scale",
+    buttonText: "Get Started",
   },
 ];
 
@@ -91,9 +91,9 @@ const faqs = [
       "Absolutely. We designed our tiers to grow with your business. Adding new solutions or upgrading your tier is straightforward. We'll discuss the scope and provide a clear quote for any changes.",
   },
   {
-    question: "Why the price ranges?",
+    question: "Are these fixed prices?",
     answer:
-      "Every business is different. The exact price depends on complexity, integrations needed, and data volume. We'll give you a fixed quote after our discovery call. No surprises.",
+      "The retainer prices are fixed — no ranges, no surprises. The tier you choose is what you pay. If your needs grow and you want to add solutions or upgrade your tier, we'll give you a clear quote before anything changes.",
   },
   {
     question: "Do I own the automations you build?",
@@ -105,13 +105,18 @@ const faqs = [
     answer:
       "We're honest upfront about what AI can and can't do. If we don't think automation will deliver ROI for your specific situation, we'll tell you during the discovery call. No hard sell.",
   },
+  {
+    question: "Is there any risk?",
+    answer:
+      "We stand behind our work. Every engagement comes with a 30-day satisfaction guarantee — if the automation isn't performing as agreed within the first month, we'll fix it at no additional cost. We also offer a 6-week fixed pilot at £1,200 for businesses who want to test before committing to a retainer.",
+  },
 ];
 
 function FAQItem({ question, answer, index }: { question: string; answer: string; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 1, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       viewport={{ once: true, amount: 0 }}
@@ -254,7 +259,7 @@ export default function PricingPage() {
 
           {/* Billing Toggle */}
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex items-center justify-center gap-4 mb-14"
@@ -283,7 +288,7 @@ export default function PricingPage() {
                 Yearly
               </span>
               <span className="text-[10px] font-semibold tracking-[0.1em] uppercase border border-[#00E676]/30 bg-[#00E676]/10 text-[#00E676] px-2 py-0.5">
-                Save ~17%
+                2 months free
               </span>
             </div>
           </motion.div>

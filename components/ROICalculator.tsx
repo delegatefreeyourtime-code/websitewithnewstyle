@@ -90,7 +90,7 @@ export default function ROICalculator() {
     const monthlySavings = weeklySavings * 4.33;
     const annualSavings = monthlySavings * 12;
 
-    // Mid-point of Growth plan monthly (£800-1200 → £1000)
+    // Growth plan monthly price
     const growthPlanMid = 1000;
     const paybackMonths = monthlySavings > 0 ? Math.ceil(growthPlanMid / monthlySavings) : null;
 
@@ -118,7 +118,7 @@ export default function ROICalculator() {
 
       <div className="mx-auto max-w-5xl px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, amount: 0 }}
@@ -139,7 +139,7 @@ export default function ROICalculator() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 1, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true, amount: 0 }}

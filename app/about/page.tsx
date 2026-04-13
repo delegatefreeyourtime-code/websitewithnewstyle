@@ -53,7 +53,7 @@ export default function AboutPage() {
           className="relative z-10 text-center px-6 max-w-5xl mx-auto"
         >
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 border border-[#1E2028] bg-[#16181D] px-4 py-1.5 mb-8"
@@ -79,7 +79,7 @@ export default function AboutPage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             className="text-xl md:text-2xl text-[#8B8C95] max-w-2xl mx-auto leading-relaxed"
@@ -96,7 +96,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 1, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.8 }}
@@ -126,7 +126,7 @@ export default function AboutPage() {
 
             {/* Stats */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 1, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0 }}
               transition={{ duration: 0.8 }}
@@ -138,7 +138,7 @@ export default function AboutPage() {
                   return (
                     <motion.div
                       key={stat.label}
-                      initial={{ opacity: 0, x: 20 }}
+                      initial={{ opacity: 1, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
@@ -178,7 +178,7 @@ export default function AboutPage() {
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.6 }}
@@ -198,7 +198,7 @@ export default function AboutPage() {
               return (
                 <motion.div
                   key={value.title}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 1, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -231,7 +231,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 1, scale: 1 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0 }}
             transition={{ duration: 0.8 }}

@@ -22,7 +22,7 @@ const steps = [
 ];
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: { staggerChildren: 0.15 },
@@ -30,7 +30,7 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 grid-overlay" />
           <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 1, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="mx-auto max-w-2xl text-center"
@@ -85,7 +85,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Form */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 1, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
@@ -97,7 +97,7 @@ export default function ContactPage() {
 
               {/* Contact Info + Calendly */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 1, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
@@ -181,7 +181,7 @@ export default function ContactPage() {
           <div className="mx-auto max-w-5xl px-6 lg:px-8 relative z-10">
             <div className="bg-[#16181D] border border-[#1E2028] p-8 md:p-12">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0 }}
                 transition={{ duration: 0.6 }}
@@ -221,7 +221,7 @@ export default function ContactPage() {
             <div className="p-8 md:p-12 bg-[#16181D] border border-[#FF5A1F]/20 shadow-[0_0_40px_rgba(255,90,31,0.06)]">
               <div className="text-center">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 1, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0 }}
                   transition={{ duration: 0.6 }}
