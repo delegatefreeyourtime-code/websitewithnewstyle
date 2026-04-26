@@ -6,7 +6,7 @@
  * Designed for a dark surface (intended to sit on top of #0A0A0A or similar).
  */
 
-import { Mail, Phone, Calendar, MessageSquare, Database, Bell } from "lucide-react";
+import { Mail, Phone, Calendar, MessageSquare, Database, Bell, type LucideIcon } from "lucide-react";
 
 const triggers = [
   { label: "Inbound Call", Icon: Phone, y: 60 },
@@ -220,7 +220,7 @@ function NodeCard({
   accent,
 }: {
   label: string;
-  Icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  Icon: LucideIcon;
   left: string;
   top: string;
   widthPct: number;
