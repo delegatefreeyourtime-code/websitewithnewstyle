@@ -3,22 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #0B0C10;
-  --foreground: #F3F4F6;
-  --muted: #16181D;
-  --muted-foreground: #8B8C95;
-  --border: #1E2028;
-  --accent: #00E676;
+  --background: #FFFFFF;
+  --foreground: #12141A;
+  --muted: #FAF9F5;
+  --muted-foreground: #6E727C;
+  --border: #D8D6CD;
+  --accent: #00B85F;
   --ring: #FF5A1F;
-  --card: #16181D;
-  --card-foreground: #F3F4F6;
+  --card: #FAF9F5;
+  --card-foreground: #12141A;
   --primary: #FF5A1F;
   --primary-foreground: #ffffff;
-  --secondary: #1E2028;
-  --secondary-foreground: #F3F4F6;
+  --secondary: #EFEDE2;
+  --secondary-foreground: #12141A;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --input: #1E2028;
+  --input: #EFEDE2;
   --button-ripple-color: rgba(255, 90, 31, 0.3);
 }
 
@@ -218,11 +218,12 @@ a {
   background-clip: text;
 }
 
-/* Glass morphism — dark variant */
+/* Glass morphism — light variant */
 .glass {
-  background: rgba(22, 24, 29, 0.7);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 214, 205, 0.6);
 }
 
 /* Grid overlay — 100px engineered grid at 3% opacity */
@@ -230,6 +231,14 @@ a {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+/* Light variant — engineered grid for light mode */
+.grid-overlay-light {
+  background-image:
+    linear-gradient(rgba(18, 20, 26, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 20, 26, 0.04) 1px, transparent 1px);
   background-size: 100px 100px;
 }
 
@@ -312,6 +321,84 @@ a {
 .glow-btn:focus-visible {
   outline: 2px solid rgba(255, 90, 31, 0.5);
   outline-offset: 2px;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   LIGHT-MODE PREVIEW OVERRIDES (2026-04-26)
+
+   Re-maps the hardcoded dark hex colors used throughout the site to
+   their light-palette equivalents. Lets us preview what a light theme
+   looks like without rewriting every component. Voice widgets keep
+   their explicit dark-grey palette (#1C1E26, #2A2C36) — those are not
+   listed here, so they remain untouched.
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Surface / background swaps */
+.bg-\[\#0B0C10\] { background-color: #FFFFFF !important; }
+.bg-\[\#16181D\] { background-color: #FAF9F5 !important; }
+.bg-\[\#16181D\]\/90 { background-color: rgba(250, 249, 245, 0.9) !important; }
+.bg-\[\#16181D\]\/70 { background-color: rgba(250, 249, 245, 0.7) !important; }
+.bg-\[\#16181D\]\/60 { background-color: rgba(250, 249, 245, 0.6) !important; }
+.bg-\[\#16181D\]\/50 { background-color: rgba(250, 249, 245, 0.5) !important; }
+.bg-\[\#1E2028\] { background-color: #EFEDE2 !important; }
+.bg-\[\#1E2028\]\/50 { background-color: rgba(239, 237, 226, 0.5) !important; }
+.hover\:bg-\[\#1E2028\]:hover { background-color: #EFEDE2 !important; }
+
+/* Border swaps */
+.border-\[\#1E2028\] { border-color: #D8D6CD !important; }
+.border-\[\#1E2028\]\/50 { border-color: rgba(216, 214, 205, 0.5) !important; }
+.border-\[\#16181D\] { border-color: #EFEDE2 !important; }
+
+/* Text swaps */
+.text-\[\#F3F4F6\] { color: #12141A !important; }
+.hover\:text-\[\#F3F4F6\]:hover { color: #12141A !important; }
+.text-\[\#8B8C95\] { color: #6E727C !important; }
+.hover\:text-\[\#8B8C95\]:hover { color: #6E727C !important; }
+
+/* Scope-out: anything inside (or being) an element flagged data-theme="dark"
+   keeps its original light-on-dark colors. Used by the voice widget + /talk
+   console so the override block above doesn't bleed into those dark surfaces.
+   Each selector is paired so it also matches the data-theme element itself,
+   not only its descendants. */
+[data-theme="dark"].text-\[\#F3F4F6\],
+[data-theme="dark"] .text-\[\#F3F4F6\],
+[data-theme="dark"].hover\:text-\[\#F3F4F6\]:hover,
+[data-theme="dark"] .hover\:text-\[\#F3F4F6\]:hover { color: #F3F4F6 !important; }
+
+[data-theme="dark"].text-\[\#8B8C95\],
+[data-theme="dark"] .text-\[\#8B8C95\],
+[data-theme="dark"].hover\:text-\[\#8B8C95\]:hover,
+[data-theme="dark"] .hover\:text-\[\#8B8C95\]:hover { color: #8B8C95 !important; }
+
+[data-theme="dark"].bg-\[\#16181D\],
+[data-theme="dark"] .bg-\[\#16181D\] { background-color: #16181D !important; }
+
+[data-theme="dark"].border-\[\#1E2028\],
+[data-theme="dark"] .border-\[\#1E2028\] { border-color: #1E2028 !important; }
+
+/* Selection — keep readable on a light background */
+::selection {
+  background-color: #FF5A1F;
+  color: #ffffff;
+}
+
+/* Logo PNG has a baked-in dark navy background; on light bg we invert + hue-rotate
+   so the dark bg flips to near-white and the orange wordmark stays orange.
+   `brightness` pushes the inverted bg closer to pure white so the rectangle
+   disappears against the page. */
+img.mix-blend-screen {
+  mix-blend-mode: normal;
+  filter: invert(1) hue-rotate(180deg) brightness(1.08);
+}
+
+/* Bright neon growth green is unreadable on white — swap to a darker green */
+.text-\[\#00E676\] { color: #00A050 !important; }
+.bg-\[\#00E676\]\/10 { background-color: rgba(0, 160, 80, 0.10) !important; }
+.border-\[\#00E676\]\/30 { border-color: rgba(0, 160, 80, 0.30) !important; }
+
+/* Gradient text fades into a green that gets lost on white — re-tune for light */
+.text-gradient {
+  background: linear-gradient(135deg, #FF5A1F 0%, #FF8C5A 50%, #00A050 100%) !important;
 }
 
 /* Accessibility: Respect user's motion preferences */

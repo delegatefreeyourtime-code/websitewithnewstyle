@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { SparklesText } from "@/components/ui/sparkles-text";
-import { SplineScene } from "@/components/ui/splite";
+import AutomationFlowDiagram from "@/components/ui/AutomationFlowDiagram";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Timeline } from "@/components/ui/timeline";
 import { Badge } from "@/components/ui/badge";
@@ -130,42 +130,48 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Interactive 3D Section */}
+      {/* Live Automation Flow Section */}
       <section className="py-12 bg-[#0B0C10]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="w-full h-[500px] bg-[#0A0A0A] relative overflow-hidden border border-[#1E2028]">
+          <div data-theme="dark" className="w-full h-[520px] bg-[#0A0A0A] relative overflow-hidden border border-[#1E2028]">
             <Spotlight
               className="-top-40 left-0 md:left-60 md:-top-20"
               fill="#FF5A1F"
             />
 
             <div className="flex flex-col md:flex-row h-full">
-              <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
-                <motion.h2
-                  initial={{ opacity: 1, y: 20 }}
+              <div className="md:w-[42%] p-8 md:p-12 relative z-10 flex flex-col justify-center">
+                <motion.span
+                  initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0 }}
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 uppercase"
+                  className="text-[11px] uppercase tracking-[0.2em] text-[#FF5A1F] font-semibold mb-4"
                 >
-                  See Your Automation Come to Life
+                  Live Workflow
+                </motion.span>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0 }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 uppercase leading-[1.05]"
+                >
+                  Triggers In.<br />Actions Out.
                 </motion.h2>
                 <motion.p
-                  initial={{ opacity: 1, y: 20 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="mt-4 text-neutral-400 max-w-lg text-base md:text-lg"
+                  className="mt-4 text-neutral-400 max-w-md text-base md:text-lg leading-relaxed"
                 >
-                  We transform complex workflows into elegant, automated systems.
-                  Watch your manual processes become intelligent, self-running machines.
+                  A call comes in. A form gets filled. A meeting lands. Your AI
+                  core decides what happens next — booking, notifying, updating —
+                  while you keep your hands free.
                 </motion.p>
               </div>
 
-              <div className="flex-1 relative min-h-[250px] md:min-h-0">
-                <SplineScene
-                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                  className="w-full h-full"
-                />
+              <div className="flex-1 relative min-h-[300px] md:min-h-0 p-4 md:p-8">
+                <AutomationFlowDiagram />
               </div>
             </div>
           </div>
