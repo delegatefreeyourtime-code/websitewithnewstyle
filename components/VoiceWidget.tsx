@@ -13,7 +13,7 @@ interface TranscriptLine {
   text: string;
 }
 
-const AGENT_ID = process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID;
+const AGENT_ID = process.env.NEXT_PUBLIC_ELEVENLABS_AGENT_ID || "agent_5101kq5h2w2vfgrv6e26yq4qcdws";
 
 export default function VoiceWidget() {
   const [open, setOpen] = useState(false);
